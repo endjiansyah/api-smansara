@@ -95,7 +95,7 @@ class ContentController extends Controller
             if($mimetype[0] == "image"){
                 $filename = $file->hashName();
                 $file->move("assets/images/", $filename);
-                $path = $request->getSchemeAndHttpHost() . "/asset/images/" . $filename;
+                $path = $request->getSchemeAndHttpHost() . "/assets/images/" . $filename;
                 $payload['image'] =  $path;
             }
             else{
@@ -111,6 +111,51 @@ class ContentController extends Controller
         return response()->json([
             "status" => true,
             "message" => "data tersimpan",
+            "data" => $content
+        ]);
+    }
+
+    function update(Request $request, $id){
+        $content = Content::query()->where("id",$id)->first();
+        if(!isset($content)){
+            return response()->json([
+                "status" => false,
+                "message" => "data not found",
+                "data" => null
+            ]);
+        }
+
+        $payload = $request->all();
+
+        $file = $request->file('image');
+        if(isset($file)){
+            $mime = $file->getClientMimeType();
+            $mimetype = explode("/",$mime);
+            if($mimetype[0] == "image"){
+                $filename = $file->hashName();
+                $file->move("assets/images/", $filename);
+                $path = $request->getSchemeAndHttpHost() . "/assets/images/" . $filename;
+                $payload['image'] =  $path;
+
+                $mediapath = str_replace($request->getSchemeAndHttpHost(), '', $content->image);
+                $mediadel = public_path($mediapath);
+                unlink($mediadel);
+            }
+            else{
+                return response()->json([
+                    "status" => false,
+                    "message" => "gambar tidak tersimpan karena bukan file gambar",
+                    "data" => null
+                ]);
+            }
+        }
+
+        $content->fill($payload);
+        $content->save();
+
+        return response()->json([
+            "status" => true,
+            "message" => "data changes successfully saved",
             "data" => $content
         ]);
     }

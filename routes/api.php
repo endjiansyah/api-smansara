@@ -23,3 +23,5 @@ Route::get("/content/pengumuman", [ContentController::class, "pengumuman"]);
 Route::get("/content/berita", [ContentController::class, "berita"]);
 Route::get("/content/detail/{id}", [ContentController::class, "show"]);
 Route::post("/content", [ContentController::class, "store"]);
+Route::post("/content/update/{id}", [ContentController::class, "update"]);
+
