@@ -160,4 +160,28 @@ class ContentController extends Controller
         ]);
     }
 
+    function destroy(Request $request,$id)
+    {
+        $content = Content::query()->where("id", $id)->first();
+        if (!isset($content)) {
+            return response()->json([
+                "status" => false,
+                "message" => "data not found",
+                "data" => null
+            ]);
+        }
+        
+
+            $contentpath = str_replace($request->getSchemeAndHttpHost(), '', $content->image);
+            $contentdel = public_path($contentpath);
+            unlink($contentdel);
+            $content->delete();
+
+        return response()->json([
+            "status" => true,
+            "message" => "data delete successfully",
+            "data" => $content
+        ]);
+    }
+
 }

@@ -24,4 +24,4 @@ Route::get("/content/berita", [ContentController::class, "berita"]);
 Route::get("/content/detail/{id}", [ContentController::class, "show"]);
 Route::post("/content", [ContentController::class, "store"]);
 Route::post("/content/update/{id}", [ContentController::class, "update"]);
-
+Route::post("/content/delete/{id}", [ContentController::class, "destroy"]);
