@@ -8,6 +8,9 @@
 
     <!-- tailwind -->
     @vite('resources/css/app.css')
+    
+    {{-- alpinejs --}}
+    <script src="//unpkg.com/alpinejs" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -25,7 +28,7 @@
     <nav id="header" class="border-[primary]/10">
         <div class="container">
             <div class="image-box">
-                <img src="./assets/smansara.png" alt="logo SMAN 1 Jepara">
+                <img src="../assets/smansara.png" alt="logo SMAN 1 Jepara">
             </div>
 
             <!-- btn hamburger -->
@@ -62,138 +65,8 @@
         </div>
     </nav>
 
- 
-    <!-- pengumuman (yang ada 6 card) -->
-    <section id="pengumuman">
-        <div class="container">
-            <div class="title">
-                <h2>Pengumuman</h2>
-                <p>
-                    Pengumuman SMA Negeri 1 Jepara.
-                </p>
-            </div>
+    @yield('content')
 
-            <div class="card-box">
-
-                <div class="card">
-                    <div class="text-card">
-                        <h1>Pengumuman 1</h1>
-                        <p>
-                            ini pengumuman sman 1 jepara ke 1
-                        </p>
-                        <p class="date">
-                            15 Juli 2023
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="text-card">
-                        <h1>Groups</h1>
-                        <p>
-                            Your users can create groups to let other users to join and talk
-                        </p>
-                        <p class="date">
-                            15 Juli 2023
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="text-card">
-                        <h1>Forum</h1>
-                        <p>
-                            Forum is ready by BBPress. Your users can make topics and talk.
-                        </p>
-                        <p class="date">
-                            15 Juli 2023
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="text-card">
-                        <h1>Custom Module</h1>
-                        <p>
-                            You can create Members, Groups Module. We already created 3 modules. It's by drag & drop live builder.
-                        </p>
-                        <p class="date">
-                            15 Juli 2023
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="text-card">
-                        <h1>List Builder</h1>
-                        <p>
-                            Members, Groups list can be modified by drag & drop live builder.
-                        </p>
-                        <p class="date">
-                            15 Juli 2023
-                        </p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="text-card">
-                        <h1>List Scroll Effects</h1>
-                        <p>
-                            8 different scroll effects are ready. You can always change by your tastes.
-                        </p>
-                        <p class="date">
-                            15 Juli 2023
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- News (bawahnya gambar HP) -->
-    <section id="berita">
-        <div class="container">
-            <div class="title">
-                <h2>Berita</h2>
-            </div>
-            <div class="card-box">
-                <div class="card">
-                    <img src="./assets/images/news1.png" alt="news">
-                    <div class="line">
-                        <div class="text">
-                            <h3>
-                                It Does Not Matter Hows Slowly go as Long
-                            </h3>
-                            <a href="#!" class="">Continue Reading</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./assets/images/news2.png" alt="news">
-                    <div class="line">
-                        <div class="text">
-                            <h3>
-                                Netbook Network Added New Photo Filter
-                            </h3>
-                            <a href="#!" class="">Continue Reading</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="./assets/images/news3.png" alt="news">
-                    <div class="line">
-                        <div class="text">
-                            <h3>
-                                We Optimised Netbooks Better Navigation
-                            </h3>
-                            <a href="#!" class="">Continue Reading</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- footernya-footer (paling bawah) -->
     <section id="footernya-footer">

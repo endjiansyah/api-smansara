@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::prefix("admin")
+    ->name("admin.")
+    ->controller(ContentController::class)
+    ->group(function () {
+        Route::get('/pengumuman', 'pagePengumuman')->name('pengumuman');
+    });

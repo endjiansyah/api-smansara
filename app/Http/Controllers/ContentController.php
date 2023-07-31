@@ -26,6 +26,21 @@ class ContentController extends Controller
         ]);
     }
 
+    function pagePengumuman(Request $request)
+    {
+        $content = Content::query()
+            ->where('type', 1);
+
+        $page = $request->get('page', 1);
+        $limit = $request->get('limit',10);
+        $offset = ($page - 1) * $limit;
+
+        $contents = $content->offset($offset)->limit($limit)->get();
+        return view("admin.pengumuman",[
+            "pengumuman" => $contents
+        ]);
+    }
+
     function berita(Request $request)
     {
         $content = Content::query()
