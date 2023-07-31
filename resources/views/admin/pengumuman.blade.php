@@ -3,11 +3,11 @@
 @section('content')
         <!-- pengumuman (yang ada 6 card) -->
         <section id="pengumuman">
-            <div class="container">
-                <div class="title">
+            <div class="container min-h-[75vh]">
+                <div class="title" id="top">
                     <h2>Pengumuman</h2>
                     <p>
-                        Pengumuman SMA Negeri 1 Jepara.
+                        List Pengumuman SMA Negeri 1 Jepara
                     </p>
                 </div>
 
@@ -33,7 +33,7 @@
                         <tbody>
                             @foreach ($pengumuman as $item)
                                 
-                            <tr class="bg-white border-b hover:bg-gray-50">
+                            <tr x-bind:class="id == {{ $item['id'] }}?'bg-yellow-100/70 hover:bg-yellow-100':'bg-white hover:bg-gray-50'" class=" border-b">
                                 <th scope="row" class="py-4 px-6 text-center font-medium text-gray-900 whitespace-nowrap">
                                     {{$item['updated_at']}}
                                 </th>
@@ -41,7 +41,7 @@
                                     {{$item['title']}}
                                 </td>
                                     <td class="py-4 px-6 text-right">
-                                        <button x-on:click="body = '{{$item['body']}}',title = '{{$item['title']}}',id = '{{$item['id']}}',image = '{{$item['image']}}',type = '{{$item['type']}}',mode='update'" class="font-medium text-blue-600 hover:underline">Edit</button>
+                                        <button x-on:click="body = '{{$item['body']}}',title = '{{$item['title']}}',id = '{{$item['id']}}',image = '{{$item['image']}}',type = '{{$item['type']}}',mode='update'" class="font-medium text-blue-600 hover:underline" onclick="window.location.href='#top'">Edit</button>
 
                                             <a onclick="return confirm('Hapus data {{ $item['title'] }}?')" href="{{ route('content.destroy', ['id' => $item['id']]) }}" class="font-medium text-red-600 hover:underline">delete</a>
                                     </td>
@@ -49,11 +49,22 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div class="w-auto flex justify-center gap-2 mt-4 items-center">
+                        <?php 
+                        $back = $page - 1;
+                        $next = $page + 1;
+                             ?>
+                        <a x-bind:href="{{ $page }} <= 1 ? '' : 'pengumuman?page='+{{ $back }}" x-bind:class="{{ $page }} <= 1 ? 'bg-gray-200': 'bg-gray-300 hover:bg-gray-200'" class="rounded-md px-6 py-2" <?= $page <= 1? 'disabled' : '' ?>>Back</a>
+                        <h3 x-text="'Page '+{{ $page }}"></h3>
+                        <a x-bind:href="{{ $page }} >= {{ $maxpage }} ? '' : 'pengumuman?page='+{{ $next }}" x-bind:class="{{ $page }} >= {{ $maxpage }} ? 'bg-gray-200': 'bg-gray-300 hover:bg-gray-400'" class="rounded-md px-6 py-2" <?= $page >= $maxpage ? 'disabled' : '' ?>>Next</a>
+
+
+                    </div>
                 
                 </div>
                 <div class="w-full lg:w-1/2">
 
-                <div class="flex flex-col gap-2 shadow p-3" x-bind:class="mode == 'create' ? 'bg-white' : 'bg-yellow-100'">
+                <div class="flex flex-col gap-2 shadow p-3" x-bind:class="mode == 'create' ? 'bg-white' : 'bg-yellow-100/70'">
                     <div class="flex justify-between">
                         <h2 x-text="mode == 'create' ? 'buat pengumuman' : 'Edit pengumuman'" class="font-bold"></h2>
                         <button x-on:click="mode = 'create',body = '', id = '', title = '',image='',type='1'" x-bind:class="mode == 'create' ? 'hidden' : 'px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-500'">Batal Edit</button>
@@ -67,14 +78,14 @@
                             Title
                         </label>
                         <div class="mt-1 rounded-md shadow-sm">
-                            <input x-bind:value="title" id="title" name="title" type="text" required autofocus class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="ex: Meja" />
+                            <input x-bind:value="title" id="title" name="title" type="text" required autofocus class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="Judul Pengumuman" />
                         </div>
                 
                         <label for="body" class="mt-3 block text-sm font-medium text-gray-700 leading-5">
                             Body
                         </label>
                         <div class="mt-1 rounded-md shadow-sm">
-                            <textarea x-bind:value="body" id="body" name="body" type="text" required autofocus class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="ex: TB" >
+                            <textarea x-bind:value="body" id="body" name="body" type="text" required autofocus class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="Isi Pengumuman" >
                             </textarea>
                         </div>
                 

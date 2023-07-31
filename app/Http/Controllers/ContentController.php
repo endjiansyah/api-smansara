@@ -28,7 +28,9 @@ class ContentController extends Controller
 
     function pagePengumuman(Request $request)
     {
+        $count = Content::where('type', 1)->count();
         $content = Content::query()
+            ->orderBy('updated_at','desc')
             ->where('type', 1);
 
         $page = $request->get('page', 1);
@@ -36,8 +38,12 @@ class ContentController extends Controller
         $offset = ($page - 1) * $limit;
 
         $contents = $content->offset($offset)->limit($limit)->get();
+        $maxpage = $count%$limit == 0? round($count/$limit) : round($count/$limit+1);
+
         return view("admin.pengumuman",[
-            "pengumuman" => $contents
+            "pengumuman" => $contents,
+            "page" => $page,
+            "maxpage" => $maxpage
         ]);
     }
 
@@ -152,9 +158,11 @@ class ContentController extends Controller
                 $path = $request->getSchemeAndHttpHost() . "/assets/images/" . $filename;
                 $payload['image'] =  $path;
 
-                $mediapath = str_replace($request->getSchemeAndHttpHost(), '', $content->image);
-                $mediadel = public_path($mediapath);
-                unlink($mediadel);
+                if($content->image != ''){
+                    $mediapath = str_replace($request->getSchemeAndHttpHost(), '', $content->image);
+                    $mediadel = public_path($mediapath);
+                    unlink($mediadel);
+                }
             }
             else{
                 return response()->json([
@@ -187,9 +195,11 @@ class ContentController extends Controller
         }
         
 
+        if($content->image != ''){
             $contentpath = str_replace($request->getSchemeAndHttpHost(), '', $content->image);
             $contentdel = public_path($contentpath);
             unlink($contentdel);
+        }
             $content->delete();
 
         return response()->json([
@@ -240,7 +250,7 @@ class ContentController extends Controller
             }
         }
 
-        $content = Content::query()->create($payload);
+        Content::query()->create($payload);
 
         return redirect()->back()->with(['successktg' => "data tersimpan"]);
     }
@@ -268,9 +278,11 @@ class ContentController extends Controller
                 $path = $request->getSchemeAndHttpHost() . "/assets/images/" . $filename;
                 $payload['image'] =  $path;
 
-                $mediapath = str_replace($request->getSchemeAndHttpHost(), '', $content->image);
-                $mediadel = public_path($mediapath);
-                unlink($mediadel);
+                if($content->image != ''){
+                    $mediapath = str_replace($request->getSchemeAndHttpHost(), '', $content->image);
+                    $mediadel = public_path($mediapath);
+                    unlink($mediadel);
+                }
             }
             else{
                 return response()->json([
@@ -302,7 +314,7 @@ class ContentController extends Controller
             $contentdel = public_path($contentpath);
             unlink($contentdel);
         }
-        
+
         $content->delete();
 
         return redirect()->back()->with(['successdktg' => 'Data terhapus']);
