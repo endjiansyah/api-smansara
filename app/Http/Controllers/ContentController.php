@@ -47,6 +47,27 @@ class ContentController extends Controller
         ]);
     }
 
+    function pageBerita(Request $request)
+    {
+        $count = Content::where('type', 2)->count();
+        $content = Content::query()
+            ->orderBy('updated_at','desc')
+            ->where('type', 2);
+
+        $page = $request->get('page', 1);
+        $limit = $request->get('limit',10);
+        $offset = ($page - 1) * $limit;
+
+        $contents = $content->offset($offset)->limit($limit)->get();
+        $maxpage = $count%$limit == 0? round($count/$limit) : round($count/$limit+1);
+
+        return view("admin.berita",[
+            "berita" => $contents,
+            "page" => $page,
+            "maxpage" => $maxpage
+        ]);
+    }
+
     function berita(Request $request)
     {
         $content = Content::query()

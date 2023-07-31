@@ -23,6 +23,8 @@ Route::prefix("admin")
     ->controller(ContentController::class)
     ->group(function () {
         Route::get('/pengumuman', 'pagePengumuman')->name('pengumuman');
+        Route::get('/berita', 'pageBerita')->name('berita');
+
         Route::post('/store', 'pageStore')->name('store');
         Route::post("/update/{id}", "pageUpdate")->name("update");
         Route::get("/destroy/{id}", "pageDestroy")->name("destroy");
