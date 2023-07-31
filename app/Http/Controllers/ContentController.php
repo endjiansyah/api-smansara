@@ -43,7 +43,9 @@ class ContentController extends Controller
         return view("admin.pengumuman",[
             "pengumuman" => $contents,
             "page" => $page,
-            "maxpage" => $maxpage
+            "npage" => 'pengumuman',
+            "maxpage" => $maxpage,
+            "padmin" => 1
         ]);
     }
 
@@ -64,7 +66,9 @@ class ContentController extends Controller
         return view("admin.berita",[
             "berita" => $contents,
             "page" => $page,
-            "maxpage" => $maxpage
+            "npage" => 'berita',
+            "maxpage" => $maxpage,
+            "padmin" => 1
         ]);
     }
 

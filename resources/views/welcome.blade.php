@@ -37,14 +37,14 @@
                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
             </button>
             
-            <div id="navbar-default" class="hidden lg:block w-full">
+            <div id="navbar-default" class="hidden lg:block w-full" x-data="{admin:{{ $padmin }}}">
                 <div class="hidenisasi">
                     <!-- left -->
                     <div class="menu-navigation">
                         <ul>
-                            <li><a href="#!" class="active">Home</a></li>
-                            <li><a href="#!">Pengumuman</a></li>
-                            <li><a href="#!">Berita</a></li>
+                            <li><a href="#!">Home</a></li>
+                            <li><a x-bind:href="admin ? 'pengumuman' : 'pengumuman'" class="<?= $npage == 'pengumuman'? 'active':'' ?>">Pengumuman</a></li>
+                            <li><a x-bind:href="admin ? 'berita' : 'berita'" class="<?= $npage == 'berita'? 'active':'' ?>">Berita</a></li>
                         </ul>
                     </div>
 
