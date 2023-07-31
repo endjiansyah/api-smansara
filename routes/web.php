@@ -19,8 +19,11 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::prefix("admin")
-    ->name("admin.")
+    ->name("content.")
     ->controller(ContentController::class)
     ->group(function () {
         Route::get('/pengumuman', 'pagePengumuman')->name('pengumuman');
+        Route::post('/store', 'pageStore')->name('store');
+        Route::post("/update/{id}", "pageUpdate")->name("update");
+        Route::get("/destroy/{id}", "pageDestroy")->name("destroy");
     });
