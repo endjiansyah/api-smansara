@@ -42,7 +42,7 @@
                     <!-- left -->
                     <div class="menu-navigation">
                         <ul>
-                            <li><a href="{{ route('admin.dashboard') }}" class="<?= $npage == 'home'? 'active':'' ?>">Home</a></li>
+                            <li><a x-bind:href="admin ? '{{ route('admin.dashboard') }}' : '{{ route('content.index') }}'" class="<?= $npage == 'home'? 'active':'' ?>">Home</a></li>
                             <li><a x-bind:href="admin ? '{{ route('admin.pengumuman') }}' : 'pengumuman'" class="<?= $npage == 'pengumuman'? 'active':'' ?>">Pengumuman</a></li>
                             <li><a x-bind:href="admin ? '{{ route('admin.berita') }}' : 'berita'" class="<?= $npage == 'berita'? 'active':'' ?>">Berita</a></li>
                         </ul>

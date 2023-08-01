@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\Controller;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,13 +20,19 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+Route::name("content.")
+    ->controller(ContentController::class)
+    ->middleware(['noAuth'])
+    ->group(function(){
+        Route::get('/','index')->name('index');
+    });
 
 Route::prefix("admin")
     ->name("admin.")
     ->middleware(['withAuth'])
     ->controller(ContentController::class)
     ->group(function () {
-        Route::get('/', 'index')->name('dashboard');
+        Route::get('/', 'dashboard')->name('dashboard');
         Route::get('/pengumuman', 'pagePengumuman')->name('pengumuman');
         Route::get('/berita', 'pageBerita')->name('berita');
 

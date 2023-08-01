@@ -8,8 +8,26 @@ use Illuminate\Support\Facades\Validator;
 
 class ContentController extends Controller
 {
+    function index(){
+        $pengumuman = Content::query()
+            ->orderBy('updated_at','desc')
+            ->where('type', 1);
+        $pengumuman = $pengumuman->offset(0)->limit(4)->get();
 
-    function index()
+        $berita = Content::query()
+            ->orderBy('updated_at','desc')
+            ->where('type', 2);
+        $berita = $berita->offset(0)->limit(6)->get();
+
+        return view('content.index', [
+            "pengumuman" => $pengumuman,
+            "berita" => $berita,
+            "npage" => 'home',
+            "padmin" => 0
+        ]);
+    }
+
+    function dashboard()
     {
         return view('admin.dashboard', [
             "logus" => session('logus'),
@@ -21,6 +39,7 @@ class ContentController extends Controller
     function pengumuman(Request $request)
     {
         $content = Content::query()
+            ->orderBy('updated_at','desc')
             ->where('type', 1);
 
         $page = $request->get('page', 1);
@@ -85,6 +104,7 @@ class ContentController extends Controller
     function berita(Request $request)
     {
         $content = Content::query()
+            ->orderBy('updated_at','desc')
             ->where('type', 2);
 
         $page = $request->get('page', 1);
