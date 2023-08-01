@@ -29,3 +29,6 @@ Route::prefix("admin")
         Route::post("/update/{id}", "pageUpdate")->name("update");
         Route::get("/destroy/{id}", "pageDestroy")->name("destroy");
     });
+
+Route::any('/login', [AuthController::class, 'login'])->name('login');
+Route::any('/logout', [AuthController::class, 'logout'])->name('logout');
