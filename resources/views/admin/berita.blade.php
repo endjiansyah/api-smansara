@@ -44,7 +44,7 @@
                                     <td class="py-4 px-6 text-right">
                                         <button x-on:click="body = '{{$item['body']}}',title = '{{$item['title']}}',id = '{{$item['id']}}',image = '{{$item['image']}}',type = '{{$item['type']}}',mode='update'" class="font-medium text-blue-600 hover:underline" onclick="window.location.href='#top'">Edit</button>
 
-                                            <a onclick="return confirm('Hapus data {{ $item['title'] }}?')" href="{{ route('content.destroy', ['id' => $item['id']]) }}" class="font-medium text-red-600 hover:underline">delete</a>
+                                            <a onclick="return confirm('Hapus data {{ $item['title'] }}?')" href="{{ route('admin.destroy', ['id' => $item['id']]) }}" class="font-medium text-red-600 hover:underline">delete</a>
                                     </td>
                             </tr>
                             @endforeach
