@@ -42,9 +42,9 @@
                     <!-- left -->
                     <div class="menu-navigation">
                         <ul>
-                            <li><a href="#!">Home</a></li>
-                            <li><a x-bind:href="admin ? 'pengumuman' : 'pengumuman'" class="<?= $npage == 'pengumuman'? 'active':'' ?>">Pengumuman</a></li>
-                            <li><a x-bind:href="admin ? 'berita' : 'berita'" class="<?= $npage == 'berita'? 'active':'' ?>">Berita</a></li>
+                            <li><a href="{{ route('admin.dashboard') }}" class="<?= $npage == 'home'? 'active':'' ?>">Home</a></li>
+                            <li><a x-bind:href="admin ? '{{ route('admin.pengumuman') }}' : 'pengumuman'" class="<?= $npage == 'pengumuman'? 'active':'' ?>">Pengumuman</a></li>
+                            <li><a x-bind:href="admin ? '{{ route('admin.berita') }}' : 'berita'" class="<?= $npage == 'berita'? 'active':'' ?>">Berita</a></li>
                         </ul>
                     </div>
 
@@ -55,10 +55,10 @@
                             <form action="post">
                                 <input type="text" name="aaa" id="hilih" placeholder="Search here ...">
                             </form>
-                        </div>
-                        <div class="button">
-                            <button>Log in</button>
                         </div> -->
+                        <div class="button" x-show="admin">
+                            <a onclick="return confirm('Yakin logout?')" href="{{ route('logout') }}" >Log out</a>
+                        </div>
                     </div>
                 </div>     
             </div>

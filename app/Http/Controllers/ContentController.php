@@ -8,6 +8,16 @@ use Illuminate\Support\Facades\Validator;
 
 class ContentController extends Controller
 {
+
+    function index()
+    {
+        return view('admin.dashboard', [
+            "logus" => session('logus'),
+            "npage" => 'home',
+            "padmin" => 1
+        ]);
+    }
+
     function pengumuman(Request $request)
     {
         $content = Content::query()

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix("admin")
     ->name("admin.")
+    ->middleware(['withAuth'])
     ->controller(ContentController::class)
     ->group(function () {
+        Route::get('/', 'index')->name('dashboard');
         Route::get('/pengumuman', 'pagePengumuman')->name('pengumuman');
         Route::get('/berita', 'pageBerita')->name('berita');
 
@@ -30,6 +33,8 @@ Route::prefix("admin")
         Route::post("/update/{id}", "pageUpdate")->name("update");
         Route::get("/destroy/{id}", "pageDestroy")->name("destroy");
     });
+
+Route::post('/update/{id}', [UserController::class, 'update'])->name('userupdate')->middleware(['withAuth']);
 
 Route::any('/login', [AuthController::class, 'login'])->name('login')->middleware(['noAuth']);
 Route::any('/logout', [AuthController::class, 'logout'])->name('logout')->middleware(['withAuth']);

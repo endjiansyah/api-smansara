@@ -141,10 +141,10 @@
         @apply text-xs bg-white/0 focus:ring-transparent border-0 w-[96px]
     }
 
-    #header .button button{
-        @apply py-[18px] px-[44px] bg-primary text-white rounded-[14px] text-xs leading-[14px]
+    #header .button a{
+        @apply py-[12px] px-[36px] bg-red-600 text-white rounded-[14px] text-xs leading-[14px]
 
-         hover:bg-blue-700
+         hover:bg-red-700
     }
 
 

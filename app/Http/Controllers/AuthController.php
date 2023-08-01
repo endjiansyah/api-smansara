@@ -25,12 +25,11 @@ class AuthController extends Controller
         if (!Hash::check($password, $admin->password)) {
             return redirect()->back()->withErrors(['message' => 'Password Salah']);
         }
-
         if (!session()->isStarted()) session()->start();
         session()->put('logged', true);
-        session()->put('idUser', $admin->id);
-        session()->put('role',$admin->role);
-        return redirect()->route('admin.berita');
+        session()->put('logus', $admin);
+
+        return redirect()->route('admin.dashboard');
     }
 
     function logout()
