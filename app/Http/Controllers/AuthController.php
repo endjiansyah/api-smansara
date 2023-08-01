@@ -12,19 +12,18 @@ class AuthController extends Controller
     function login(Request $request)
     {
         if ($request->method() == 'GET') {
-            return view('login');
+            return view('formlogin');
         }
 
-        $email = $request->input("email");
+        $username = $request->input("username");
         $password = $request->input('password');
-        // dd($email, admin::query()->where("email", $email)->first());
-        $admin = Admin::query()->where("email", $email)->first();
+        $admin = Admin::query()->where("username", $username)->first();
 
         if ($admin == null) {
-            return redirect()->back()->withErrors(['msg' => 'Email salah!!']);
+            return redirect()->back()->withErrors(['message' => 'Email salah!!']);
         }
         if (!Hash::check($password, $admin->password)) {
-            return redirect()->back()->withErrors(['msg' => 'Password Salah']);
+            return redirect()->back()->withErrors(['message' => 'Password Salah']);
         }
 
         if (!session()->isStarted()) session()->start();

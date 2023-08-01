@@ -259,4 +259,13 @@
     #footernya-footer p{
         @apply font-normal text-sm leading-[14px] text-[#f6f6f6]
     }
+
+    /* login */
+    #login{
+    @apply w-screen h-screen bg-blue-200/75
+    }
+
+    #login .container{
+    @apply justify-center max-w-3xl
+    }
 }

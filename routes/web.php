@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ContentController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::prefix("admin")
-    ->name("content.")
+    ->name("admin.")
     ->controller(ContentController::class)
     ->group(function () {
         Route::get('/pengumuman', 'pagePengumuman')->name('pengumuman');

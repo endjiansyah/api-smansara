@@ -24,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     {{-- <link rel="stylesheet" href="./dist/output.css"> --}}
-    @livewireStyles
+
     @vite('resources/css/app.css')
 </head>
 
@@ -34,7 +34,7 @@
 
     <!-- flowbite -->
     <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
-    @livewireScripts
+
 </body>
 
 </html>
