@@ -3,6 +3,9 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Admin;
+use App\Models\Content_Type;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -20,11 +23,17 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        DB::table('content_type')->insert([
+        Content_Type::query()->create([
             'type' => "pengumuman",
         ]);
-        DB::table('content_type')->insert([
+        Content_Type::query()->create([
             'type' => "berita",
+        ]);
+        Admin::query()->create([
+            'name' => "super admin",
+            'username' => "admsmansara",
+            'password' => "smansara",
+            'role' => 1
         ]);
         
     }
