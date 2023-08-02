@@ -2,38 +2,11 @@
 
 @section('content')
 
-    <section id="pengumuman">
-        <div class="container">
-            <div class="title">
-                <h2>Pengumuman</h2>
-                <p>
-                    Pengumuman terbaru SMA Negeri 1 Jepara
-                </p>
-            </div>
-
-            <div class="card-box">
-
-                @foreach ($pengumuman as $item)
-                    <div class="card">
-                        <div class="text-card">
-                            <h1>{{ $item->title }}</h1>
-
-                            <p class="date">
-                                {{ $item->updated_at }}
-                            </p>
-                        </div>
-                    </div>
-                @endforeach
-
-            </div>
-        </div>
-    </section>
-
     <section id="berita">
-        <div class="container">
+        <div class="container min-h-[75vh]">
             <div class="title">
                 <h2>Berita</h2>
-                <p>Berita terbaru SMA Negeri 1 Jepara</p>
+                <p>Berita SMA Negeri 1 Jepara</p>
             </div>
             <div class="card-box">
                 

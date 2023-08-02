@@ -27,6 +27,52 @@ class ContentController extends Controller
         ]);
     }
 
+    function contentBerita(Request $request)
+    {
+        $count = Content::where('type', 2)->count();
+        $content = Content::query()
+            ->orderBy('updated_at','desc')
+            ->where('type', 2);
+
+        $page = $request->get('page', 1);
+        $limit = $request->get('limit',12);
+        $offset = ($page - 1) * $limit;
+
+        $contents = $content->offset($offset)->limit($limit)->get();
+        $maxpage = $count%$limit == 0? round($count/$limit) : round($count/$limit+1);
+
+        return view("content.berita",[
+            "berita" => $contents,
+            "page" => $page,
+            "npage" => 'berita',
+            "maxpage" => $maxpage,
+            "padmin" => 0
+        ]);
+    }
+
+    function contentPengumuman(Request $request)
+    {
+        $count = Content::where('type', 1)->count();
+        $content = Content::query()
+            ->orderBy('updated_at','desc')
+            ->where('type', 1);
+
+        $page = $request->get('page', 1);
+        $limit = $request->get('limit',10);
+        $offset = ($page - 1) * $limit;
+
+        $contents = $content->offset($offset)->limit($limit)->get();
+        $maxpage = $count%$limit == 0? round($count/$limit) : round($count/$limit+1);
+
+        return view("content.pengumuman",[
+            "pengumuman" => $contents,
+            "page" => $page,
+            "npage" => 'pengumuman',
+            "maxpage" => $maxpage,
+            "padmin" => 0
+        ]);
+    }
+
     function dashboard()
     {
         return view('admin.dashboard', [
@@ -54,6 +100,7 @@ class ContentController extends Controller
             "data" => $contents
         ]);
     }
+    
 
     function pagePengumuman(Request $request)
     {

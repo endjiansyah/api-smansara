@@ -45,7 +45,7 @@
     }
 
     .title-c{
-        @apply font-semibold text-2xl leading-[26px] text-[#2f2c4a] font-inter
+        @apply font-semibold text-xl leading-[26px] text-[#2f2c4a] font-inter
     }
     .title-d{
         @apply font-semibold text-3xl leading-[52px] text-[#2f2c4a] font-inter
@@ -196,7 +196,7 @@
 
     /* berita */
     #berita{
-        @apply py-[120px]
+        @apply py-[120px] bg-[linear-gradient(0deg,_rgba(241,_246,_253,_0)_1.63%,_#F1F6FD_20.5%,_#F1F6FD_58.57%,_#FFFFFF_100%)]
     }
 
     #berita .container{
@@ -211,21 +211,29 @@
         @apply blueh4
     }
 
+    #berita .title p{
+        @apply par-a mx-auto max-w-[421px] mb-8
+    }
+
     #berita .title h2{
-        @apply title-b mb-8 lg:mb-[60px]
+        @apply title-b mt-[9px] mb-[19px]
     }
 
     #berita .card-box{
-        @apply flex flex-wrap gap-6 justify-center lg:justify-between
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center lg:justify-between
     }
 
     #berita .card{
-        @apply flex flex-col gap-2 lg:gap-6
+        @apply flex flex-col gap-2 lg:gap-6 p-4
+    }
+
+    #berita .card img{
+        @apply w-auto
     }
 
     #berita .line::before{
         /* before */
-        @apply flex content-[''] inline-block w-[39px] h-[2px] bg-[url('../assets/images/logo/line.svg')] mr-[14px] mt-5 bg-cover bg-no-repeat 
+        @apply flex content-[''] inline-block w-[39px] h-[2px] bg-[url('../../public/assets/line.svg')] mr-[14px] mt-5 bg-cover bg-no-repeat 
     }
 
     #berita .card h3{
@@ -238,7 +246,7 @@
     #berita .text a{
         @apply
         /* after */
-        after:content-[''] after:inline-block after:w-[10px] after:h-[10px]  after:bg-[url('../assets/images/logo/arrowgray.svg')] after:ml-2 after:bg-cover after:bg-no-repeat
+        after:content-[''] after:inline-block after:w-[10px] after:h-[10px]  after:bg-[url('../../public/assets/arrowgray.svg')] after:ml-2 after:bg-cover after:bg-no-repeat
         /* flexing center */
         flex items-center
 
@@ -246,7 +254,7 @@
         par-c
     }
     #berita .text a:hover{
-        @apply text-[#217BF4] after:bg-[url('../assets/images/logo/arrowblue.svg')]
+        @apply text-[#217BF4] after:bg-[url('../../public/assets/arrowblue.svg')]
     }
 
     /* footernya-footer */

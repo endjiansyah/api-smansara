@@ -25,6 +25,8 @@ Route::name("content.")
     ->middleware(['noAuth'])
     ->group(function(){
         Route::get('/','index')->name('index');
+        Route::get('/pengumuman', 'contentPengumuman')->name('pengumuman');
+        Route::get('/berita', 'contentBerita')->name('berita');
     });
 
 Route::prefix("admin")
