@@ -3,15 +3,14 @@
 <section id="login">
     <div class="container min-h-[75vh]">
         <div class="pt-24">
-            <div class="sm:mx-auto sm:w-full sm:max-w-md">
-                <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
-                    Login Admin
-                </h2>
-                
-            </div>
+            
             <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
                 
-                <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
+                <div class="px-4 py-8 bg-white shadow rounded-lg sm:px-10">
+                    <div class="flex justify-center mb-5">
+                        <img src="./assets/logosmansara.png" alt="SMAN 1 Jepara" class="text-center w-52">
+                    </div>
+                    <hr>
                     <form action="{{route('login')}}" method="POST">
                         @csrf
                         <div>
