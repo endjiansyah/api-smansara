@@ -224,7 +224,7 @@
     }
 
     #berita .card{
-        @apply flex flex-col gap-2 lg:gap-6 p-4
+        @apply flex flex-col gap-2 lg:gap-6 p-4 bg-white rounded
     }
 
     #berita .card img{
@@ -233,7 +233,7 @@
 
     #berita .line::before{
         /* before */
-        @apply flex content-[''] inline-block w-[39px] h-[2px] bg-[url('../../public/assets/line.svg')] mr-[14px] mt-5 bg-cover bg-no-repeat 
+        @apply flex content-[''] inline-block w-[39px] h-[2px] bg-[url('../../public/assets/line.svg')] mr-[14px] bg-cover bg-no-repeat 
     }
 
     #berita .card h3{

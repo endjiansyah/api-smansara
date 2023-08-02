@@ -40,13 +40,14 @@
                 @foreach ($berita as $item)    
                 <div class="card">
                     <img src="{{ $item->image != ''? $item->image : './assets/logosmansara.png' }}" alt="{{ $item->title }}">
-                    <div class="line">
-                        <div class="text">
+                    <div class="text">
+                        {{ $item->updated_at }}
+                            <div class="line">
+                            </div>
                             <h3>
                                 {{ $item->title }}
                             </h3>
                             <a href="#!" class="">Continue Reading</a>
-                        </div>
                     </div>
                 </div>
                 @endforeach
