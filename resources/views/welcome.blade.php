@@ -76,12 +76,12 @@
                     EndProject
                 </p>
 
-                <div class="btn-box flex gap-2">
+                {{-- <div class="btn-box flex gap-2">
                     <a href="#!"><img src="./assets/images/logo/Twitter.svg" alt="twitter"></a>
                     <a href="#!"><img src="./assets/images/logo/instagram.svg" alt="instagram"></a>
                     <a href="#!"><img src="./assets/images/logo/facebook.svg" alt="facebook"></a>
                     <a href="#!"><img src="./assets/images/logo/Linkedin.svg" alt="Linkedin.svg"></a>
-                </div>
+                </div> --}}
             </div>
         </section>
 

@@ -5,26 +5,48 @@
     <section id="berita">
         <div class="container min-h-[75vh]">
             <div class="title">
-                <h2>Berita</h2>
+                <h2 id="bacaberita">Berita</h2>
                 <p>Berita SMA Negeri 1 Jepara</p>
             </div>
-            <div class="card-box">
+
+            <div x-data="{id:'',title:'',body:'',time:'',image:'',show:'false'}">
+                <div x-show="show == 'true'" class="card mb-8 md:mx-2 lg:mx-4 rounded-xl bg-white border-blue-400 border-4 shadow-lg p-4 md:p-6 lg:py-8">
+                    <div class="flex justify-end w-full py-0 h-auto">
+                        <button x-on:click="show = 'false', id=''" class="bg-red-500 hover:bg-red-600 text-white text-center w-7 h-7 rounded-full">x</button>
+                    </div>
+                    <div class="w-full flex justify-center">
+                        <img x-show="image != ''" x-bind:src=" image != ''? image : './assets/logosmansara.png'" alt="title">
+                    </div>
+                    <div class="">
+                        <p x-text="time"></p>
+                        <div class="line">
+                        </div>
+                        <h3 x-text="title"></h3>
+                        <hr class="mb-2">
+                        <p x-text=body></p>
+                    </div>
+                </div>
                 
-                @foreach ($berita as $item)    
-                <div class="card">
-                    <img src="{{ $item->image != ''? $item->image : './assets/logosmansara.png' }}" alt="{{ $item->title }}">
-                    <div class="text">
-                        {{ $item->updated_at }}
+                <hr class="mb-2">
+                
+                <div class="card-box">
+                
+                    @foreach ($berita as $item)    
+                    <div x-bind:class="id == {{ $item['id']}} ? 'border-blue-400 border-4'  : ''" class="card">
+                        <img src="{{ $item->image != ''? $item->image : './assets/logosmansara.png' }}" alt="{{ $item->title }}">
+                        <div class="text">
+                            {{ $item->updated_at }}
                             <div class="line">
                             </div>
                             <h3>
                                 {{ $item->title }}
                             </h3>
-                            <a href="#!" class="text-left px-0">Continue Reading</a>
+                            <button x-on:click="id='{{ $item['id'] }}',body = '{{$item['body']}}',title = '{{$item['title']}}',image = '{{$item['image']}}',time = '{{$item['updated_at']}}',show='true'"  onclick="window.location.href='#bacaberita'">Continue Reading</button>
+                        </div>
                     </div>
+                    @endforeach
+                    
                 </div>
-                @endforeach
-
             </div>
         </div>
     </section>

@@ -5,7 +5,7 @@
     <section id="pengumuman">
         <div class="container min-h-[75vh]">
             <div class="title">
-                <h2>Pengumuman</h2>
+                <h2 id="bacapengumuman">Pengumuman</h2>
                 <p>
                     Pengumuman SMA Negeri 1 Jepara
                 </p>
