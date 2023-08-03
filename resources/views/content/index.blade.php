@@ -80,12 +80,12 @@
                         <img src="{{ $item->image != ''? $item->image : './assets/logosmansara.png' }}" alt="{{ $item->title }}">
                         <div class="text">
                             {{ $item->updated_at }}
-                                <div class="line">
-                                </div>
-                                <h3>
-                                    {{ $item->title }}
-                                </h3>
-                                <button x-on:click="id='{{ $item['id'] }}',body = '{{$item['body']}}',title = '{{$item['title']}}',image = '{{$item['image']}}',time = '{{$item['updated_at']}}',show='true'"  onclick="window.location.href='#bacaberita'">Continue Reading</button>
+                            <div class="line">
+                            </div>
+                            <h3>
+                                {{ $item->title }}
+                            </h3>
+                            <button x-on:click="id='{{ $item['id'] }}',body = '{{$item['body']}}',title = '{{$item['title']}}',image = '{{$item['image']}}',time = '{{$item['updated_at']}}',show='true'"  onclick="window.location.href='#bacaberita'">Continue Reading</button>
                         </div>
                     </div>
                     @endforeach
