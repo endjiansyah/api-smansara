@@ -174,7 +174,11 @@
     }
 
     #pengumuman .card{
-        @apply p-2 lg:py-7 lg:px-4 flex w-full bg-white md:w-[522px] h-auto rounded-[14px] shadow-[14px_22px_52px_-12px_rgba(127,_127,_127,_0.13)] items-start hover:drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] flex-wrap justify-center  md:justify-between md:flex-nowrap
+        @apply p-4 max-w-[960px] flex w-full bg-white h-auto rounded-[14px] shadow-[14px_22px_52px_-12px_rgba(127,_127,_127,_0.13)] items-start hover:drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] flex-wrap justify-center  md:justify-between flex-col
+    }
+
+    #pengumuman .card-box .card{
+    @apply  md:w-[522px] lg:py-7 lg:px-4
     }
 
     #pengumuman .text-card{

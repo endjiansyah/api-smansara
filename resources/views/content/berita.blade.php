@@ -20,7 +20,7 @@
                             <h3>
                                 {{ $item->title }}
                             </h3>
-                            <a href="#!" class="">Continue Reading</a>
+                            <a href="#!" class="text-left px-0">Continue Reading</a>
                     </div>
                 </div>
                 @endforeach
