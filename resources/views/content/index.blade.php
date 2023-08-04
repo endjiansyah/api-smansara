@@ -54,20 +54,23 @@
             </div>
 
             <div x-data="{id:'',title:'',body:'',time:'',image:'',show:'false'}">
-                <div x-show="show == 'true'" class="card mb-8 md:mx-2 lg:mx-4 rounded-xl bg-white border-blue-400 border-4 shadow-lg p-4 md:p-6 lg:py-8">
-                    <div class="flex justify-end w-full py-0 h-auto">
+                <div x-show="show == 'true'" class="card mb-8 md:mx-2 lg:mx-4 rounded-xl bg-white border-blue-400 border-4 shadow-lg">
+                    <div class="flex justify-between w-full p-1">
+                        <p x-text="time"></p>
                         <button x-on:click="show = 'false', id=''" class="bg-red-500 hover:bg-red-600 text-white text-center w-7 h-7 rounded-full">x</button>
                     </div>
-                    <div class="w-full flex justify-center">
-                        <img x-show="image != ''" x-bind:src=" image != ''? image : './assets/logosmansara.png'" alt="title">
-                    </div>
-                    <div class="">
-                        <p x-text="time"></p>
-                        <div class="line">
+                    <div class=" p-4 md:px-6 md:pb-6">
+                        <div class="w-full flex justify-center">
+                            <img x-show="image != ''" x-bind:src=" image != ''? image : './assets/logosmansara.png'" alt="title">
                         </div>
-                        <h3 x-text="title"></h3>
-                        <hr class="mb-2">
-                        <p x-text=body></p>
+                        <div>
+                            <br x-show="image != ''">
+                            <div class="line">
+                            </div>
+                            <h3 x-text="title"></h3>
+                            <hr class="mb-2">
+                            <p x-text=body></p>
+                        </div>
                     </div>
                 </div>
                 
@@ -79,6 +82,7 @@
                     <div x-bind:class="id == {{ $item['id']}} ? 'border-blue-400 border-4'  : ''" class="card">
                         <img src="{{ $item->image != ''? $item->image : './assets/logosmansara.png' }}" alt="{{ $item->title }}">
                         <div class="text">
+                            
                             {{ $item->updated_at }}
                             <div class="line">
                             </div>
