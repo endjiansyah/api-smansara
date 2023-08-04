@@ -80,7 +80,9 @@
                 
                     @foreach ($berita as $item)    
                     <div x-bind:class="id == {{ $item['id']}} ? 'border-blue-400 border-4'  : ''" class="card">
-                        <img src="{{ $item->image != ''? $item->image : './assets/logosmansara.png' }}" alt="{{ $item->title }}">
+                        <div class="w-full flex justify-center">
+                            <img src="{{ $item->image != ''? $item->image : './assets/mdlogosmansara.jpg' }}" alt="{{ $item->title }}" >
+                        </div>
                         <div class="text">
                             
                             {{ $item->updated_at }}
