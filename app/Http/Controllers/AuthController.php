@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -97,6 +98,45 @@ class AuthController extends Controller
             "status" => true,
             "message" => "Sukses Logout",
             "data" => $user
+        ]);
+    }
+
+    function store(Request $request){
+        $payload = [
+            "name" => $request->input("name"),
+            "username" => $request->input("username"),
+            "password" => $request->input("password"),
+        ];
+
+        $validator = Validator::make($payload,[
+            "name" => 'required',
+            "username" => 'required',
+            "password" => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                "status" => false,
+                "message" => $validator->errors(),
+                "data" => null
+            ]);
+        }
+
+        $count = User::where('username', '=', $payload['username'])->count();
+
+        if ($count > 0) {
+            return response()->json([
+                "status" => false,
+                "message" => "username sudah terdaftar",
+                "data" => 'username'
+            ]);
+        }
+
+        $content = User::query()->create($payload);
+        return response()->json([
+            "status" => true,
+            "message" => "data tersimpan",
+            "data" => $content
         ]);
     }
 }

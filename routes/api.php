@@ -28,6 +28,7 @@ Route::post("/content/update/{id}", [ContentController::class, "update"])->middl
 Route::post("/content/delete/{id}", [ContentController::class, "destroy"])->middleware("apikey");
 
 // ---------{Sanctum}-------
+Route::post("/register", [AuthController::class, "store"])->middleware("apikey");
 Route::post("/login", [AuthController::class, "login"])->middleware("apikey");
 Route::get("/logout", [AuthController::class, "logout"])->middleware(["auth:sanctum","apikey"]);
 Route::get("/me", [AuthController::class, "getUser"])->middleware(["auth:sanctum","apikey"]);
