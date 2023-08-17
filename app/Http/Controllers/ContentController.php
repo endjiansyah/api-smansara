@@ -81,27 +81,7 @@ class ContentController extends Controller
             "padmin" => 1
         ]);
     }
-
-    function pengumuman(Request $request)
-    {
-        $content = Content::query()
-            ->orderBy('updated_at','desc')
-            ->where('type', 1);
-
-        $page = $request->get('page', 1);
-        $limit = $request->get('limit',-1);
-        $offset = ($page - 1) * $limit;
-
-        $contents = $content->offset($offset)->limit($limit)->get();
-
-        return response()->json([
-            "status" => true,
-            "message" => "list pengumuman",
-            "data" => $contents
-        ]);
-    }
     
-
     function pagePengumuman(Request $request)
     {
         $count = Content::where('type', 1)->count();
@@ -147,21 +127,49 @@ class ContentController extends Controller
             "padmin" => 1
         ]);
     }
+    
+    function pengumuman(Request $request)
+    {
+        $count = Content::where('type', 1)->count();
+
+        $content = Content::query()
+            ->orderBy('updated_at','desc')
+            ->where('type', 1);
+
+        $page = $request->get('page', 1);
+        $limit = $request->get('limit',10);
+        $offset = ($page - 1) * $limit;
+
+        $contents = $content->offset($offset)->limit($limit)->get();
+        $maxpage = $count%$limit == 0? floor($count/$limit) : floor($count/$limit+1);
+
+        return response()->json([
+            "status" => true,
+            "page" => $page,
+            "maxpage" => $maxpage,
+            "message" => "list pengumuman",
+            "data" => $contents
+        ]);
+    }
 
     function berita(Request $request)
     {
+        $count = Content::where('type', 2)->count();
         $content = Content::query()
             ->orderBy('updated_at','desc')
             ->where('type', 2);
 
         $page = $request->get('page', 1);
-        $limit = $request->get('limit',-1);
+        $limit = $request->get('limit',10);
         $offset = ($page - 1) * $limit;
 
         $contents = $content->offset($offset)->limit($limit)->get();
+        $maxpage = $count%$limit == 0? floor($count/$limit) : floor($count/$limit+1);
 
         return response()->json([
             "status" => true,
+            "page" => $page,
+            "maxpage" => $maxpage,
             "message" => "list berita",
             "data" => $contents
         ]);
