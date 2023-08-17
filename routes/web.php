@@ -20,30 +20,30 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-Route::name("content.")
-    ->controller(ContentController::class)
-    ->middleware(['noAuth'])
-    ->group(function(){
-        Route::get('/','index')->name('index');
-        Route::get('/pengumuman', 'contentPengumuman')->name('pengumuman');
-        Route::get('/berita', 'contentBerita')->name('berita');
-    });
+// Route::name("content.")
+//     ->controller(ContentController::class)
+//     ->middleware(['noAuth'])
+//     ->group(function(){
+//         Route::get('/','index')->name('index');
+//         Route::get('/pengumuman', 'contentPengumuman')->name('pengumuman');
+//         Route::get('/berita', 'contentBerita')->name('berita');
+//     });
 
-Route::prefix("admin")
-    ->name("admin.")
-    ->middleware(['withAuth'])
-    ->controller(ContentController::class)
-    ->group(function () {
-        Route::get('/', 'dashboard')->name('dashboard');
-        Route::get('/pengumuman', 'pagePengumuman')->name('pengumuman');
-        Route::get('/berita', 'pageBerita')->name('berita');
+// Route::prefix("admin")
+//     ->name("admin.")
+//     ->middleware(['withAuth'])
+//     ->controller(ContentController::class)
+//     ->group(function () {
+//         Route::get('/', 'dashboard')->name('dashboard');
+//         Route::get('/pengumuman', 'pagePengumuman')->name('pengumuman');
+//         Route::get('/berita', 'pageBerita')->name('berita');
 
-        Route::post('/store', 'pageStore')->name('store');
-        Route::post("/update/{id}", "pageUpdate")->name("update");
-        Route::get("/destroy/{id}", "pageDestroy")->name("destroy");
-    });
+//         Route::post('/store', 'pageStore')->name('store');
+//         Route::post("/update/{id}", "pageUpdate")->name("update");
+//         Route::get("/destroy/{id}", "pageDestroy")->name("destroy");
+//     });
 
-Route::post('/update/{id}', [UserController::class, 'update'])->name('userupdate')->middleware(['withAuth']);
+// Route::post('/update/{id}', [UserController::class, 'update'])->name('userupdate')->middleware(['withAuth']);
 
-Route::any('/login', [AuthController::class, 'login'])->name('login')->middleware(['noAuth']);
-Route::any('/logout', [AuthController::class, 'logout'])->name('logout')->middleware(['withAuth']);
+// Route::any('/login', [AuthController::class, 'Pagelogin'])->name('login')->middleware(['noAuth']);
+// Route::any('/logout', [AuthController::class, 'Pagelogout'])->name('logout')->middleware(['withAuth']);

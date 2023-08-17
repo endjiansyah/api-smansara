@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,13 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
 
-Route::get("/content/pengumuman", [ContentController::class, "pengumuman"]);
-Route::get("/content/berita", [ContentController::class, "berita"]);
-Route::get("/content/detail/{id}", [ContentController::class, "show"]);
-Route::post("/content", [ContentController::class, "store"]);
-Route::post("/content/update/{id}", [ContentController::class, "update"]);
-Route::post("/content/delete/{id}", [ContentController::class, "destroy"]);
+Route::get("/content/pengumuman", [ContentController::class, "pengumuman"])->middleware("apikey");
+Route::get("/content/berita", [ContentController::class, "berita"])->middleware("apikey");
+Route::get("/content/detail/{id}", [ContentController::class, "show"])->middleware("apikey");
+Route::post("/content", [ContentController::class, "store"])->middleware("apikey");
+Route::post("/content/update/{id}", [ContentController::class, "update"])->middleware("apikey");
+Route::post("/content/delete/{id}", [ContentController::class, "destroy"])->middleware("apikey");
+
+// ---------{Sanctum}-------
+Route::post("/login", [AuthController::class, "login"])->middleware("apikey");
+Route::get("/logout", [AuthController::class, "logout"])->middleware(["auth:sanctum","apikey"]);
+Route::get("/me", [AuthController::class, "getUser"])->middleware(["auth:sanctum","apikey"]);
