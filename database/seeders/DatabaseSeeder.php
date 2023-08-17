@@ -29,12 +29,7 @@ class DatabaseSeeder extends Seeder
         Content_Type::query()->create([
             'type' => "berita",
         ]);
-        // Admin::query()->create([
-        //     'name' => "super admin",
-        //     'username' => "admsmansara",
-        //     'password' => "smansara",
-        //     'role' => 1
-        // ]);
+
         User::query()->create([
             'name' => "super admin",
             'username' => "admsmansara",

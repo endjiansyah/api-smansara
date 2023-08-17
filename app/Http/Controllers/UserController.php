@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     function update(Request $request, $id)
     {
-        $content = Admin::query()->where("id",$id)->first();
+        $content = User::query()->where("id",$id)->first();
         $request->validate([
             "name" => 'required',
             "username" => 'required'
