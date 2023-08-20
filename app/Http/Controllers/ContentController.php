@@ -147,6 +147,7 @@ class ContentController extends Controller
             "status" => true,
             "page" => $page,
             "maxpage" => $maxpage,
+            "count" => $count,
             "message" => "list pengumuman",
             "data" => $contents
         ]);
@@ -170,6 +171,7 @@ class ContentController extends Controller
             "status" => true,
             "page" => $page,
             "maxpage" => $maxpage,
+            "count" => $count,
             "message" => "list berita",
             "data" => $contents
         ]);

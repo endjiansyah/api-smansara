@@ -51,12 +51,7 @@
 
                         <!-- right -->
                         <div class="menu-action">
-                            <!-- <div class="search-box">
-                                <img src="./assets/images/logo/koco.svg" alt="magni">
-                                <form action="post">
-                                    <input type="text" name="aaa" id="hilih" placeholder="Search here ...">
-                                </form>
-                            </div> -->
+
                             <div class="button" x-show="admin">
                                 <a onclick="return confirm('Yakin logout?')" href="{{ route('logout') }}" >Log out</a>
                             </div>
