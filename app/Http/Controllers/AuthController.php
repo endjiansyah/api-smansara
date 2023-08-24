@@ -139,4 +139,27 @@ class AuthController extends Controller
             "data" => $content
         ]);
     }
+
+    function update(Request $request, $id)
+    {
+        $user = User::query()->where("id", $id)->first();
+        if (!isset($user)) {
+            return response()->json([
+                "status" => false,
+                "message" => "luru nopo mas?",
+                "data" => null
+            ]);
+        }
+
+        $payload = $request->all();
+
+        $user->fill($payload);
+        $user->save();
+
+        return response()->json([
+            "status" => true,
+            "message" => "perubahan data tersimpan",
+            "data" => $user
+        ]);
+    }
 }
