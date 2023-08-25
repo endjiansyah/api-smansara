@@ -17,11 +17,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    use HasFactory;
+    public $guarded = ['id'];
+    protected $table = 'admin';
 
     /**
      * The attributes that should be hidden for serialization.
@@ -38,8 +36,17 @@ class User extends Authenticatable
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
-    ];
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function (User $admin) {
+            $user->password = Hash::make($user->password);
+        });
+        static::updating(function (User $user) {
+            if ($user->isDirty(["password"])) {
+                $user->password = Hash::make($user->password);
+            }
+        });
+    }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,17 +17,17 @@ class AuthController extends Controller
 
         $username = $request->input("username");
         $password = $request->input('password');
-        $admin = Admin::query()->where("username", $username)->first();
+        $user = User::query()->where("username", $username)->first();
 
-        if ($admin == null) {
+        if ($user == null) {
             return redirect()->back()->withErrors(['message' => 'Email salah!!']);
         }
-        if (!Hash::check($password, $admin->password)) {
+        if (!Hash::check($password, $user->password)) {
             return redirect()->back()->withErrors(['message' => 'Password Salah']);
         }
         if (!session()->isStarted()) session()->start();
         session()->put('logged', true);
-        session()->put('logus', $admin);
+        session()->put('logus', $user);
 
         return redirect()->route('admin.dashboard');
     }
