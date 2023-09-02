@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SMAN 1 Jepara</title>
-        <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
 
         <!-- tailwind -->
         @vite('resources/css/app.css')
@@ -13,14 +13,13 @@
         {{-- alpinejs --}}
         <script src="//unpkg.com/alpinejs" defer></script>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 
-        <!-- flowbite -->
-        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.4/dist/flowbite.min.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./dist/output.css">
+        {{-- <link rel="stylesheet" href="/dist/output.css"> --}}
 
     </head>
     <body>
@@ -29,13 +28,22 @@
         <nav id="header" class="border-[primary]/10">
             <div class="container">
                 <div class="image-box">
-                    <img src="../assets/smansara.png" alt="logo SMAN 1 Jepara">
+                    <img src="/assets/smansara.png" alt="logo SMAN 1 Jepara">
                 </div>
 
                 <!-- btn hamburger -->
-                <button data-collapse-toggle="navbar-default" type="button" class="hamburger" aria-controls="navbar-default" aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                <button
+                    data-collapse-toggle="navbar-default"
+                    type="button"
+                    class="hamburger"
+                    aria-controls="navbar-default"
+                    aria-expanded="false"
+                    onclick="toggleNavbar()"
+                >
+                    <span class="sr-only">Buka menu utama</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                    </svg>
                 </button>
                 
                 <div id="navbar-default" class="hidden lg:block w-full" x-data="{admin:{{ $padmin }}}">
@@ -51,12 +59,7 @@
 
                         <!-- right -->
                         <div class="menu-action">
-                            <!-- <div class="search-box">
-                                <img src="./assets/images/logo/koco.svg" alt="magni">
-                                <form action="post">
-                                    <input type="text" name="aaa" id="hilih" placeholder="Search here ...">
-                                </form>
-                            </div> -->
+
                             <div class="button" x-show="admin">
                                 <a onclick="return confirm('Yakin logout?')" href="{{ route('logout') }}" >Log out</a>
                             </div>
@@ -68,17 +71,23 @@
 
         @yield('content')
 
+        <script>
+            function toggleNavbar() {
+                const navbar = document.getElementById('navbar-default');
+                if (navbar.classList.contains('hidden')) {
+                    navbar.classList.remove('hidden');
+                } else {
+                    navbar.classList.add('hidden');
+                }
+            }
+        </script>
 
-        <!-- footernya-footer (paling bawah) -->
-        {{-- <section id="footernya-footer">
-            <div class="container">
-                <p>
-                    EndProject
-                </p>
-            </div>
-        </section> --}}
-
-        <!-- flowbite -->
-        <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#body' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
     </body>
 </html>

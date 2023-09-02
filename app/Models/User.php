@@ -19,7 +19,7 @@ class User extends Authenticatable
      */
     use HasFactory;
     public $guarded = ['id'];
-    protected $table = 'admin';
+    protected $table = 'users';
 
     /**
      * The attributes that should be hidden for serialization.

@@ -50,8 +50,9 @@ class ContentController extends Controller
         ]);
     }
 
-    function contentPengumuman(Request $request)
+    function contentPengumuman(Request $request, $id = null)
     {
+
         $count = Content::where('type', 1)->count();
         $content = Content::query()
             ->orderBy('updated_at','desc')
@@ -69,7 +70,7 @@ class ContentController extends Controller
             "page" => $page,
             "npage" => 'pengumuman',
             "maxpage" => $maxpage,
-            "padmin" => 0
+            "padmin" => 0,
         ]);
     }
 
@@ -112,16 +113,45 @@ class ContentController extends Controller
         $page = $request->get('page', 1);
         $limit = $request->get('limit',10);
         $offset = ($page - 1) * $limit;
-
         $contents = $content->offset($offset)->limit($limit)->get();
         $maxpage = $count%$limit == 0? round($count/$limit) : round($count/$limit+1);
+        // dd($contents);
 
         return view("admin.pengumuman",[
             "pengumuman" => $contents,
             "page" => $page,
             "npage" => 'pengumuman',
             "maxpage" => $maxpage,
-            "padmin" => 1
+            "padmin" => 1,
+            "mode" =>"create"
+        ]);
+    }
+
+    function pagePengumumanid(Request $request, $id)
+    {
+        $cdata = Content::where('id', $id)->first();
+        // dd($cdata);
+        $count = Content::where('type', 1)->count();
+        $content = Content::query()
+            ->orderBy('updated_at','desc')
+            ->where('type', 1);
+
+        $page = $request->get('page', 1);
+        $limit = $request->get('limit',10);
+        $offset = ($page - 1) * $limit;
+        $contents = $content->offset($offset)->limit($limit)->get();
+        $maxpage = $count%$limit == 0? round($count/$limit) : round($count/$limit+1);
+        // dd($contents);
+
+        return view("admin.editpengumuman",[
+            "pengumuman" => $contents,
+            "page" => $page,
+            "npage" => 'pengumuman',
+            "maxpage" => $maxpage,
+            "padmin" => 1,
+            "mode" =>"create",
+            "cdata" => $cdata,
+
         ]);
     }
 
@@ -318,6 +348,7 @@ class ContentController extends Controller
             "body" => $request->input("body"),
             "type" => $request->input("type"),
         ];
+        // dd($payload);
 
         $validator = Validator::make($payload,[
             "title" => 'required',
@@ -400,6 +431,7 @@ class ContentController extends Controller
 
         return redirect()->back()->with(['successktg' => 'Data terupdate']);
     }
+    
     function pageDestroy(Request $request,$id)
     {
         $content = Content::query()->where("id", $id)->first();

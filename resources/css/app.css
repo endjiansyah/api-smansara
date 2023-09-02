@@ -279,4 +279,18 @@
     #login .container{
     @apply justify-center max-w-3xl
     }
+
+    
+    h1{
+        @apply text-[2em] font-bold
+    }
+    h2{
+        @apply text-[1.5em] font-bold
+    }
+    h3{
+        @apply text-[1.17em] font-bold
+    }
+    h4{
+        @apply text-[1.12em] font-bold
+    }
 }
