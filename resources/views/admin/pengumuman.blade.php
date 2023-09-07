@@ -32,7 +32,7 @@
                         <tbody>
                             @foreach ($pengumuman as $item)
                                 
-                            <tr class="bg-white hover:bg-gray-50" class=" border-b">
+                            <tr class="{{$cdata['id'] != $item['id']? 'bg-white hover:bg-gray-50' : 'bg-yellow-100 hover:bg-orange-100'}}" class=" border-b">
                                 <th scope="row" class="py-4 px-6 text-center font-medium text-gray-900 whitespace-nowrap">
                                     {{$item['updated_at']}}
                                 </th>
@@ -40,7 +40,7 @@
                                     {{$item['title']}}
                                 </td>
                                     <td class="py-4 px-6 text-right">
-                                        <a class="font-medium text-blue-600 hover:underline" href="{{route('admin.detail_pengumuman', ['id' => $item['id']])}}">Edit</a>
+                                        <a class="font-medium text-blue-600 hover:underline" href="pengumuman?{{$page != 1? 'page='.$page.'&' : ''}}content={{$item['id']}}">Edit</a>
 
                                             <a onclick="return confirm('Hapus data {{ $item['title'] }}?')" href="{{ route('admin.destroy', ['id' => $item['id']]) }}" class="font-medium text-red-600 hover:underline">delete</a>
                                     </td>
@@ -60,22 +60,25 @@
                     </div>
                 
                 </div>
-                <div class="w-full lg:w-1/2 bg-white">
+                <div class="w-full lg:w-1/2 {{$cdata['id'] == 0? 'bg-white' : 'bg-yellow-100'}}">
 
                     <div class="flex flex-col gap-2 shadow p-3">
                         <div class="flex justify-between">
-                            <h2 class="font-bold">Buat Pengumuman</h2>
+                            <h3 class="font-bold">{{$cdata['id'] == 0? 'Buat Pengumuman' : 'Edit Pengumuman'}}</h3>
+                            @if($cdata['id'] != 0)
+                                <a href="{{route('admin.pengumuman')}}" class="px-4 py-2 text-sm font-medium text-white bg-red-600 border border-transparent rounded-md hover:bg-red-500">Batal Edit</a>
+                            @endif
                         </div>
                         <hr>
                     
-                        <form action="{{route('admin.store')}}" method="POST">
+                        <form action="{{$cdata['id'] == 0? route('admin.store') : route('admin.update', ['id' => $cdata['id']])}}" method="POST">
                             @csrf
                             <input type="hidden" name="type" id="type" value="1">
                             <label for="title" class="block text-sm font-medium text-gray-700 leading-5">
                                 Title
                             </label>
                             <div class="mt-1 rounded-md shadow-sm">
-                                <input id="title" name="title" type="text" required autofocus class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="Judul Pengumuman" />
+                                <input id="title" name="title" type="text" value="{{$cdata['title']}}" required autofocus class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="Judul Pengumuman" />
                             </div>
                     
                             <label for="body" class="mt-3 block text-sm font-medium text-gray-700 leading-5">
@@ -83,6 +86,7 @@
                             </label>
                             <div class="mt-1 rounded-md shadow-sm">
                                 <textarea id="body" name="body" type="text" required autofocus class="w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:ring-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5" placeholder="Isi Pengumuman" >
+                                    {{$cdata['body']}}
                                 </textarea>
                             </div>
                     

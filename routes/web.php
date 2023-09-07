@@ -36,7 +36,7 @@ Route::prefix("admin")
     ->group(function () {
         Route::get('/', 'dashboard')->name('dashboard');
         Route::get('/pengumuman', 'pagePengumuman')->name('pengumuman');
-        Route::get('/pengumuman/{id}', 'pagePengumumanid')->name('detail_pengumuman');
+        // Route::get('/pengumuman/{id}', 'pagePengumumanid')->name('detail_pengumuman');
         Route::get('/berita', 'pageBerita')->name('berita');
 
         Route::post('/store', 'pageStore')->name('store');

@@ -106,6 +106,19 @@ class ContentController extends Controller
     function pagePengumuman(Request $request)
     {
         $count = Content::where('type', 1)->count();
+        $content = $request->get('content', 0);
+
+        if($content == 0){
+            $cdata = [
+                'id' => 0,
+                'title' => '',
+                'body' => '',
+                'image' => '',
+            ];
+        }else{
+            $cdata = Content::where('id', $content)->first();
+        }
+
         $content = Content::query()
             ->orderBy('updated_at','desc')
             ->where('type', 1);
@@ -123,41 +136,26 @@ class ContentController extends Controller
             "npage" => 'pengumuman',
             "maxpage" => $maxpage,
             "padmin" => 1,
-            "mode" =>"create"
-        ]);
-    }
-
-    function pagePengumumanid(Request $request, $id)
-    {
-        $cdata = Content::where('id', $id)->first();
-        // dd($cdata);
-        $count = Content::where('type', 1)->count();
-        $content = Content::query()
-            ->orderBy('updated_at','desc')
-            ->where('type', 1);
-
-        $page = $request->get('page', 1);
-        $limit = $request->get('limit',10);
-        $offset = ($page - 1) * $limit;
-        $contents = $content->offset($offset)->limit($limit)->get();
-        $maxpage = $count%$limit == 0? round($count/$limit) : round($count/$limit+1);
-        // dd($contents);
-
-        return view("admin.editpengumuman",[
-            "pengumuman" => $contents,
-            "page" => $page,
-            "npage" => 'pengumuman',
-            "maxpage" => $maxpage,
-            "padmin" => 1,
-            "mode" =>"create",
-            "cdata" => $cdata,
-
+            "cdata" => $cdata
         ]);
     }
 
     function pageBerita(Request $request)
     {
         $count = Content::where('type', 2)->count();
+
+        $content = $request->get('content', 0);
+
+        if($content == 0){
+            $cdata = [
+                'id' => 0,
+                'title' => '',
+                'body' => ''
+            ];
+        }else{
+            $cdata = Content::where('id', $content)->first();
+        }
+
         $content = Content::query()
             ->orderBy('updated_at','desc')
             ->where('type', 2);
@@ -174,7 +172,8 @@ class ContentController extends Controller
             "page" => $page,
             "npage" => 'berita',
             "maxpage" => $maxpage,
-            "padmin" => 1
+            "padmin" => 1,
+            "cdata" => $cdata
         ]);
     }
 

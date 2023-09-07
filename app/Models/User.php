@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -39,8 +40,7 @@ class User extends Authenticatable
     protected static function boot()
     {
         parent::boot();
-
-        static::creating(function (User $admin) {
+        static::creating(function (User $user) {
             $user->password = Hash::make($user->password);
         });
         static::updating(function (User $user) {
