@@ -21,7 +21,7 @@
                         <hr>
                         <div class="text-card w-full">
                             <h1 x-text="title" class="text-center"></h1>
-                            <p x-text='body'></p>
+                            <p x-html='body'></p>
                         </div>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                             </div>
                             <h3 x-text="title"></h3>
                             <hr class="mb-2">
-                            <p x-text=body></p>
+                            <p x-html=body></p>
                         </div>
                     </div>
                 </div>

@@ -20,7 +20,7 @@
                         <hr>
                         <div class="text-card w-full">
                             <h1 x-text="title" class="text-center"></h1>
-                            <p x-text='body'></p>
+                            <p x-html='body'></p>
                         </div>
                     </div>
                 </div>
