@@ -113,7 +113,7 @@ class ContentController extends Controller
                 'id' => 0,
                 'title' => '',
                 'body' => '',
-                'image' => '',
+                'type'=> 1
             ];
         }else{
             $cdata = Content::where('id', $content)->first();
@@ -150,7 +150,9 @@ class ContentController extends Controller
             $cdata = [
                 'id' => 0,
                 'title' => '',
-                'body' => ''
+                'body' => '',
+                'image' => '',
+                'type' => 2,
             ];
         }else{
             $cdata = Content::where('id', $content)->first();

@@ -13,8 +13,8 @@
         {{-- alpinejs --}}
         <script src="//unpkg.com/alpinejs" defer></script>
 
-        <!-- <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script> -->
-        <script src="https://cdn.tiny.cloud/1/945mcsgfk431ijoj5cqmn5kk1a5oclfx206q55bvrbtw521k/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+        <!-- <script src="https://cdn.tiny.cloud/1/945mcsgfk431ijoj5cqmn5kk1a5oclfx206q55bvrbtw521k/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> -->
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -83,20 +83,20 @@
             }
         </script>
 
-<!-- <script>
+<script>
     ClassicEditor
         .create( document.querySelector( '#body' ) )
         .catch( error => {
             console.error( error );
         } );
-</script> -->
-
+</script>
+<!-- 
 <script>
     tinymce.init({
       selector: 'textarea',
       plugins: 'anchor autolink charmap codesample emoticons link lists media searchreplace table visualblocks wordcount',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
     });
-  </script>
+  </script> -->
     </body>
 </html>

@@ -73,7 +73,7 @@
                     
                         <form action="{{$cdata['id'] == 0? route('admin.store') : route('admin.update', ['id' => $cdata['id']])}}" method="POST">
                             @csrf
-                            <input type="hidden" name="type" id="type" value="1">
+                            <input type="hidden" name="type" id="type" value="{{$cdata['type']}}">
                             <label for="title" class="block text-sm font-medium text-gray-700 leading-5">
                                 Title
                             </label>
