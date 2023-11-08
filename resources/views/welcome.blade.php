@@ -21,7 +21,36 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         {{-- <link rel="stylesheet" href="/dist/output.css"> --}}
-
+        <style>
+            #hero {
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-image: url('/assets/sman1jepara.jpg');
+                background-size: cover;
+                background-position: bottom;
+                color: white;
+                text-align: center;
+                transition: background-image 1s ease;
+            }
+    
+            #hero .gradient-overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(28, 11, 255, 0.1);
+    }
+    
+            #hero .hero-text {
+    
+                transform: translateY(-50%);
+                /* font-size: 24px; */
+            }
+        </style>
     </head>
     <body>
         
