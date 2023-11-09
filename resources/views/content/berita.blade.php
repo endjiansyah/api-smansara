@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section id="berita">
+    <section id="berita" class="bg-white py-24">
         <div class="container min-h-[75vh]">
             <div class="title">
                 <h2 id="bacaberita">Berita</h2>

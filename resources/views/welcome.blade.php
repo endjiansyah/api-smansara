@@ -71,6 +71,28 @@
 
         @yield('content')
 
+
+        <footer class="text-gray-600 body-font bg-gray-800">
+            <div class="container px-5 pt-8 pb-24 md:pt-16 md:pb:16 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap md:gap-6 flex-col">
+              <div class="w-full md:w-1/2 px-4 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5605.107345287424!2d110.66363849981195!3d-6.59593138258339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e711efc5f23ab15%3A0x7dfb4da9091ebe49!2sSMA%20Negeri%201%20Jepara!5e0!3m2!1sen!2sid!4v1699514476480!5m2!1sen!2sid" class="w-full h-72" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              <div class="flex-grow flex flex-col flex-wrap -mb-10 md:mt-0 mt-10 md:text-left text-center">
+                <h1 class="text-white text-lg leading-relative mb-2">Website terkait</h1>
+                <a href="https://smansara.com/" class="text-white text-md font-thin hover:font-medium">SMANSARA.COM</a>
+                <a href="https://wesitu.smansara.com/" class="text-white text-md font-thin hover:font-medium">wesitu.smansara.com</a>
+                <div class="pt-8">
+                    <h1 class="text-white text-lg leading-relative mb-2">SMA Negeri 1 Jepara</h1>
+                    <p class="text-white text-md font-thin mb-2">Jl. C.S. Tubun 1, Demaan VIII, Demaan, Kec. Jepara, Kabupaten Jepara, Jawa Tengah 59419</p>
+                    <p class="text-white text-md font-thin">(0291) 591148</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-gray-900">
+              <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row"><a href="https://endjiansyah.github.io" target="_blank">2023</a> | SMA Negeri 1 Jepara
+              </div>
+            </div>
+          </footer>
         <script>
             function toggleNavbar() {
                 const navbar = document.getElementById('navbar-default');

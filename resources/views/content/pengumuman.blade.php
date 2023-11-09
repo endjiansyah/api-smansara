@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section id="pengumuman">
+    <section id="pengumuman" class="bg-white">
         <div class="container min-h-[75vh]">
             <div class="title">
                 <h2 id="bacapengumuman">Pengumuman</h2>
