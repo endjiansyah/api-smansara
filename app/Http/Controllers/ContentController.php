@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 class ContentController extends Controller
 {
     function index(){
+
         $pengumuman = Content::query()
             ->orderBy('updated_at','desc')
             ->where('type', 1);

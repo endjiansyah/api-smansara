@@ -174,7 +174,7 @@
     }
 
     #pengumuman .card{
-        @apply p-4 max-w-[960px] flex w-full bg-white h-auto rounded-[14px] shadow-[14px_22px_52px_-12px_rgba(127,_127,_127,_0.13)] items-start hover:drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] flex-wrap justify-center  md:justify-between flex-col
+        @apply p-4 max-w-[960px] flex w-full bg-white h-auto rounded-[14px] flex-wrap justify-center  md:justify-between flex-col
     }
 
     #pengumuman .card-box .card{
@@ -200,7 +200,7 @@
 
     /* berita */
     #berita{
-        @apply py-[120px] bg-[linear-gradient(0deg,_rgba(241,_246,_253,_0)_1.63%,_#F1F6FD_20.5%,_#F1F6FD_58.57%,_#FFFFFF_100%)]
+        @apply bg-[linear-gradient(0deg,_rgba(241,_246,_253,_0)_1.63%,_#F1F6FD_20.5%,_#F1F6FD_58.57%,_#FFFFFF_100%)]
     }
 
     #berita .container{
