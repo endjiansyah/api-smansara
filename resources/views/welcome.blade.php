@@ -60,7 +60,7 @@
                         <!-- right -->
                         <div class="menu-action">
 
-                            <div class="button" x-show="admin">
+                            <div class="button {{$padmin == 1? "":"hidden"}}">
                                 <a onclick="return confirm('Yakin logout?')" href="{{ route('logout') }}" >Log out</a>
                             </div>
                         </div>
