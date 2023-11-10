@@ -30,7 +30,7 @@
                             {{ $item->updated_at->isoFormat('dddd, D MMMM Y') }}
                             <div class="line">
                             </div>
-                            <h3>
+                            <h3 class="pb-4">
                                 {{ $item->title }}
                             </h3>
                             <button x-on:click="id='{{ $item['id'] }}',body = '{{$item['body']}}',title = '{{$item['title']}}',image = '{{$item['image']}}',time = '{{ $item->updated_at->isoFormat('dddd, D MMMM Y') }}',show='true';scrollToElement('#bacaberita')" class="absolute bottom-2">Continue Reading</button>
@@ -97,7 +97,7 @@
         </div>
     </section>
 
-    <section id="pengumuman" class="bg-gray-100">
+    <section id="pengumuman" class="bg-gray-100 pb-24">
         <div class="container">
             <div class="title">
                 <h2 id="bacapengumuman">Pengumuman</h2>
