@@ -1,5 +1,9 @@
 @extends('welcome')
-
+@php
+            setlocale(LC_TIME, 'id_ID');
+        \Carbon\Carbon::setLocale('id');
+        \Carbon\Carbon::now()->formatLocalized("%A, %d %B %Y");
+@endphp
 @section('content')
 
 <section id="pengumuman" class="bg-gray-100 pb-24">

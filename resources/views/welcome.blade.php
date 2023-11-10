@@ -89,7 +89,7 @@
               </div>
             </div>
             <div class="bg-gray-900">
-              <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row"><a href="https://endjiansyah.github.io" target="_blank">2023</a> | SMA Negeri 1 Jepara
+              <div class="container mx-auto py-4 px-5 flex flex-wrap flex-row"><a href="https://endjiansyah.github.io" target="_blank">2023</a> | SMA Negeri 1 Jepara
               </div>
             </div>
           </footer>

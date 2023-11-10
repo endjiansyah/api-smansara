@@ -1,5 +1,9 @@
 @extends('welcome')
-
+@php
+            setlocale(LC_TIME, 'id_ID');
+        \Carbon\Carbon::setLocale('id');
+        \Carbon\Carbon::now()->formatLocalized("%A, %d %B %Y");
+@endphp
 @section('content')
 
 <section id="berita" class="py-40 bg-gray-100">
@@ -33,7 +37,7 @@
                 </div>
             </div>
 
-            
+
             <div class="card-box">
             
                 @foreach ($berita as $item)    

@@ -200,7 +200,7 @@
 
     /* berita */
     #berita{
-        @apply bg-gradient-to-b from-transparent to-10% to-gray-100
+        @apply bg-gray-100
     }
 
     #berita .container{
