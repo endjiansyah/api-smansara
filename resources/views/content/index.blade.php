@@ -6,10 +6,10 @@
 @endphp
 @section('content')
 
-    <section id="top" class="h-[100vh] bg-transparent">
+    <section id="top" class="h-[95vh] bg-transparent">
     </section>
 
-    <section id="berita" class="bg-white py-16">
+    <section id="berita" class="py-40">
         <div class="container">
             <div class="title">
                 <h2>Berita</h2>

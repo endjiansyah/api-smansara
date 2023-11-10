@@ -22,7 +22,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         {{-- <link rel="stylesheet" href="/dist/output.css"> --}}
     </head>
-    <body class="bg-no-repeat bg-fixed bg-bottom" style="background-image: url('/assets/sman1jepara.jpg')">
+    <body class="bg-no-repeat bg-fixed bg-bottom bg-cover" style="background-image: url('/assets/sman1jepara.png')">
         
         <!-- nav (navbar) -->
         <nav id="header" class="border-[primary]/10">
@@ -118,13 +118,5 @@
             console.error( error );
         } );
 </script>
-<!-- 
-<script>
-    tinymce.init({
-      selector: 'textarea',
-      plugins: 'anchor autolink charmap codesample emoticons link lists media searchreplace table visualblocks wordcount',
-      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-    });
-  </script> -->
     </body>
 </html>
