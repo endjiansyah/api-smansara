@@ -45,7 +45,7 @@
     }
 
     .title-c{
-        @apply font-semibold text-xl leading-[26px] text-[#2f2c4a] font-inter
+        @apply font-semibold text-base md:text-lg lg:text-xl leading-[26px] text-[#2f2c4a] font-inter
     }
     .title-d{
         @apply font-semibold text-3xl leading-[52px] text-[#2f2c4a] font-inter
@@ -150,7 +150,7 @@
 
     /* pengumuman */
     #pengumuman{
-       @apply bg-[linear-gradient(0deg,_rgba(241,_246,_253,_0)_1.63%,_#F1F6FD_20.5%,_#F1F6FD_58.57%,_#FFFFFF_100%)] pt-[120px] lg:pb-20
+       @apply bg-[linear-gradient(0deg,_rgba(241,_246,_253,_0)_1.63%,_#F1F6FD_20.5%,_#F1F6FD_58.57%,_#FFFFFF_100%)] pt-16 lg:pt-[120px] lg:pb-20
     }
 
     #pengumuman .title{
@@ -166,7 +166,7 @@
     }
 
     #pengumuman .title h2{
-        @apply title-b mt-[9px] mb-[19px]
+        @apply title-b mt-[9px] lg:mb-[19px]
     }
 
     #pengumuman .card-box{
@@ -187,7 +187,7 @@
     }
 
     #pengumuman .text-card h1{
-        @apply justify-center md:justify-start title-c
+        @apply title-c
     }
 
     #pengumuman .text-card p{
