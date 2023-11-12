@@ -22,7 +22,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         {{-- <link rel="stylesheet" href="/dist/output.css"> --}}
     </head>
-    <body class="bg-no-repeat bg-fixed bg-bottom bg-cover" style="background-image: url('/assets/sman1jepara.png')">
+    <body class="bg-no-repeat bg-fixed bg-bottom bg-cover" style="{{$padmin == 1? "":"background-image: url('/assets/sman1jepara.png')"}}">
         
         <!-- nav (navbar) -->
         <nav id="header" class="border-[primary]/10">
@@ -73,6 +73,7 @@
 
 
         <footer class="text-gray-600 body-font bg-gray-800">
+            @if($padmin != 1)
             <div class="container px-5 pt-8 pb-24 md:pt-16 md:pb:16 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap md:gap-6 flex-col">
               <div class="w-full md:w-1/2 px-4 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5605.107345287424!2d110.66363849981195!3d-6.59593138258339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e711efc5f23ab15%3A0x7dfb4da9091ebe49!2sSMA%20Negeri%201%20Jepara!5e0!3m2!1sen!2sid!4v1699514476480!5m2!1sen!2sid" class="w-full h-72" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -88,6 +89,7 @@
                 </div>
               </div>
             </div>
+            @endif
             <div class="bg-gray-900">
               <div class="container mx-auto py-4 px-5 flex flex-wrap flex-row"><a href="https://endjiansyah.github.io" target="_blank">2023</a> | SMA Negeri 1 Jepara
               </div>
