@@ -6,7 +6,7 @@
 @endphp
 @section('content')
 
-<section id="berita" class="py-28 min-h-[70vh]">
+<section id="berita" class="bg-blue-100 py-28 min-h-[70vh]">
         <div class="container">
             <div class="title">
                 <h2>Berita</h2>
