@@ -97,16 +97,18 @@
                 </div>
                 <div class="p-4 md:w-1/2 w-full">
                     <div class="group h-full bg-gray-100 p-8 rounded hover:bg-white hover:-translate-y-2 hover:shadow-xl duration-300">
-                        <div class=" mb-6">
-                            <h2 class="text-center">MISI</h2>
+                        <div class="mb-4 md:mb-6">
+                            <h2 class="text-center text-lg md:text-xl">MISI</h2>
                             <div class="w-0 group-hover:w-20 duration-300 h-1 bg-gray-100 group-hover:bg-gray-400 mx-auto"></div>
                         </div>
-                        <p>1. Melaksanakan proses pembelajaran secara efektif sehingga siswa berkembang secara optimal untuk meraih prestasi terbaik.</p>
-                        <p>2. Mengembangkan potensi siswa sesuai dengan bakat dan minat yang dimiliki agar meraih prestasi optimal.</p>
-                        <p>3. Mengembangkan kegiatan yang mendorong siswa berpkir kreatif dan mampu berkarya inovatif.</p>
-                        <p>4. Menumbuhkan sikap santun dalam bertutur kata dan berperilaku.</p>
-                        <p>5. Meningkatkan pengetahuan dan memperluas wawasan agar mampu menghadapi persaingan global.</p>
-                        <p>6. Menanamkan sikap jujur pada setiap individu dan tekun melaksanakan ibadah sesuai dengan agama da keyakinannya.</p>
+                        <ul class="list-decimal text-sm md:text-base text-justify ml-4">
+                            <li>Melaksanakan proses pembelajaran secara efektif sehingga siswa berkembang secara optimal untuk meraih prestasi terbaik.</li>
+                            <li>Mengembangkan potensi siswa sesuai dengan bakat dan minat yang dimiliki agar meraih prestasi optimal.</li>
+                            <li>Mengembangkan kegiatan yang mendorong siswa berpkir kreatif dan mampu berkarya inovatif.</li>
+                            <li>Menumbuhkan sikap santun dalam bertutur kata dan berperilaku.</li>
+                            <li>Meningkatkan pengetahuan dan memperluas wawasan agar mampu menghadapi persaingan global.</li>
+                            <li>Menanamkan sikap jujur pada setiap individu dan tekun melaksanakan ibadah sesuai dengan agama da keyakinannya.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
