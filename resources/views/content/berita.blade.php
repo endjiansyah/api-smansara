@@ -10,7 +10,7 @@
     <div class="container">
         <div class="title">
             <h2>Berita</h2>
-            <p>Berita terbaru SMA Negeri 1 Jepara</p>
+            <p>Berita SMA Negeri 1 Jepara</p>
         </div>
 
         <div x-data="{id:'',title:'',body:'',time:'',image:'',show:'false'}">
