@@ -18,10 +18,16 @@
 
             <div x-data="{id:'',title:'',body:'',time:'',image:'',show:'false'}">
                 
-                <div class="card-box">
+                <div x-show="show =='false'" class="card-box"
+                x-transition:enter="transition ease-out duration-300 delay-100"
+                x-transition:enter-start="opacity-0 scale-90"
+                x-transition:enter-end="opacity-100 scale-100">
                 
                     @foreach ($berita as $item)    
-                    <div x-bind:class="id == {{ $item['id']}} ? ' bg-white shadow-xl border'  : 'bg-white shadow border'" class="card relative">
+                    <div x-bind:class="id == {{ $item['id']}} ? ' bg-white shadow-xl border'  : 'bg-white shadow border'" class="card relative" x-show="show =='false'" 
+                    x-transition:enter="transition ease-out duration-300 delay-100"
+                    x-transition:enter-start="opacity-0 scale-90"
+                    x-transition:enter-end="opacity-100 scale-100">
                         <div class="w-full flex justify-center">
                             <img src="{{ $item->image != ''? $item->image : './assets/mdlogosmansara.jpg' }}" alt="{{ $item->title }}" >
                         </div>
@@ -33,14 +39,16 @@
                             <h3 class="pb-4">
                                 {{ $item->title }}
                             </h3>
-                            <button x-on:click="id='{{ $item['id'] }}',body = '{{$item['body']}}',title = '{{$item['title']}}',image = '{{$item['image']}}',time = '{{ $item->updated_at->isoFormat('dddd, D MMMM Y') }}',show='true';scrollToElement('#bacaberita')" class="absolute bottom-2">Continue Reading</button>
+                            <button x-on:click="id='{{ $item['id'] }}',body = '{{$item['body']}}',title = '{{$item['title']}}',image = '{{$item['image']}}',time = '{{ $item->updated_at->isoFormat('dddd, D MMMM Y') }}',show='true';scrollToElement('#bacaberita')" class="absolute bottom-4">Continue Reading</button>
                         </div>
                     </div>
                     @endforeach
                     
                 </div>
 
-                <div x-show="show == 'true'" class="card my-8 md:mx-2 lg:mx-4 rounded-xl bg-white border shadow-xl" id="bacaberita">
+                <div x-show="show == 'true' " class="card my-8 md:mx-2 lg:mx-4 rounded-xl bg-white border shadow-xl" id="bacaberita" x-transition:enter="transition ease-out duration-300 delay-100"
+                x-transition:enter-start="opacity-0 scale-90"
+                x-transition:enter-end="opacity-100 scale-100">
 
                     <div class="flex justify-between w-full p-4">
                         <p x-text="time"></p>
@@ -71,8 +79,11 @@
             <h1 class="text-3xl font-semibold title-font text-white mb-12 text-center">SMA Negeri 1 Jepara</h1>
             <div class="flex flex-wrap -m-4">
                 <div class="p-4 md:w-1/2 w-full">
-                    <div class="h-full bg-gray-100 p-8 rounded hover:-translate-y-0.5 hover:shadow-xl">
-                        <h2 class="text-center mb-6">VISI</h2>
+                    <div class="group h-full bg-gray-100 p-8 rounded hover:bg-white hover:-translate-y-2 hover:shadow-xl duration-300">
+                        <div class=" mb-6">
+                            <h2 class="text-center">VISI</h2>
+                            <div class="w-0 group-hover:w-20 duration-300 h-1 bg-gray-100 group-hover:bg-gray-400 mx-auto"></div>
+                        </div>
                         <p class="leading-relaxed mb-6">Unggul dalam prestasi, kreatif, santun, berwawasan global, dan bertaqwa kepada Tuhan yang Maha Esa.</p>
                         <p class="leading-relaxed mb-1">Indikator Visi:</p>
                         <p>a. Unggul dalam prestasi akademik dan non akademik</p>
@@ -83,8 +94,11 @@
                     </div>
                 </div>
                 <div class="p-4 md:w-1/2 w-full">
-                    <div class="h-full bg-gray-100 p-8 rounded hover:-translate-y-0.5 hover:shadow-xl">
-                        <h2 class="text-center mb-6">MISI</h2>
+                    <div class="group h-full bg-gray-100 p-8 rounded hover:bg-white hover:-translate-y-2 hover:shadow-xl duration-300">
+                        <div class=" mb-6">
+                            <h2 class="text-center">MISI</h2>
+                            <div class="w-0 group-hover:w-20 duration-300 h-1 bg-gray-100 group-hover:bg-gray-400 mx-auto"></div>
+                        </div>
                         <p>1. Melaksanakan proses pembelajaran secara efektif sehingga siswa berkembang secara optimal untuk meraih prestasi terbaik.</p>
                         <p>2. Mengembangkan potensi siswa sesuai dengan bakat dan minat yang dimiliki agar meraih prestasi optimal.</p>
                         <p>3. Mengembangkan kegiatan yang mendorong siswa berpkir kreatif dan mampu berkarya inovatif.</p>

@@ -11,7 +11,7 @@
         @vite('resources/css/app.css')
         
         {{-- alpinejs --}}
-        <script src="//unpkg.com/alpinejs" defer></script>
+        <script defer src="//unpkg.com/alpinejs" defer></script>
 
         <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
         <!-- <script src="https://cdn.tiny.cloud/1/945mcsgfk431ijoj5cqmn5kk1a5oclfx206q55bvrbtw521k/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> -->
