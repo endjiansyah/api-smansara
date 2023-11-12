@@ -115,7 +115,7 @@
         </div>
     </section>
 
-    <section id="pengumuman" class="bg-gray-100 pb-24">
+    <section id="pengumuman" class="bg-gray-100 py-16">
         <div class="container" id="bacapengumuman">
             <div class="title">
                 <h2>Pengumuman</h2>
