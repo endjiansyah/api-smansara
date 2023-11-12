@@ -1,7 +1,7 @@
 @extends('welcome')
 
 @section('content')
-    <section id="pengumuman">
+    <section id="pengumuman" class=" py-24">
         <div class="container min-h-[75vh]">
             <div class="title" id="top">
                 <h2>Berita</h2>

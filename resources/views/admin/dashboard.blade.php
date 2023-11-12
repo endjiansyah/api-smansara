@@ -1,10 +1,10 @@
 @extends('welcome')
 
 @section('content')
-<section id="pengumuman">
+<section id="pengumuman" class=" py-24">
     <div class="container min-h-[75vh]">
         <div class="w-full">
-            <div class="px-4 py-8 shadow-lg sm:rounded-lg sm:px-10 bg-white">
+            <div class="px-4 py-8 shadow-lg border-2 sm:rounded-lg sm:px-10 bg-white">
                 <h2 class="mb-6 text-2xl text-gray-900 leading-9">
                     Selamat Datang {{ $logus->name }}
                 </h2>
