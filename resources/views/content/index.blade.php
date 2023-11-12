@@ -33,10 +33,10 @@
                         </div>
                         <div class="text">
                             
-                            {{ $item->updated_at->isoFormat('dddd, D MMMM Y') }}
+                            <p class="text-xs md:text-base">{{ $item->updated_at->isoFormat('dddd, D MMMM Y') }}</p>
                             <div class="line">
                             </div>
-                            <h3 class="pb-4">
+                            <h3 class="pb-4 md:pb-6">
                                 {{ $item->title }}
                             </h3>
                             <button x-on:click="id='{{ $item['id'] }}',body = '{{$item['body']}}',title = '{{$item['title']}}',image = '{{$item['image']}}',time = '{{ $item->updated_at->isoFormat('dddd, D MMMM Y') }}',show='true';scrollToElement('#bacaberita')" class="absolute bottom-4">Continue Reading</button>
@@ -46,12 +46,12 @@
                     
                 </div>
 
-                <div x-show="show == 'true'" class="card my-8 md:mx-2 lg:mx-4 rounded-xl bg-white border shadow-xl" id="bacaberita" x-transition:enter="transition ease-out duration-500"
+                <div x-show="show == 'true'" class="card my-4 md:my-8 md:mx-2 lg:mx-4 rounded-xl bg-white border shadow-xl" id="bacaberita" x-transition:enter="transition ease-out duration-500"
                 x-transition:enter-start="opacity-0 scale-90"
                 x-transition:enter-end="opacity-100 scale-100">
 
-                    <div class="flex justify-between w-full p-4">
-                        <p x-text="time"></p>
+                    <div class="flex justify-between items-center w-full p-4">
+                        <p x-text="time" class="text-sm md:text-base"></p>
                         <button x-on:click="show = 'false', id=''" class="bg-red-500 hover:bg-red-600 text-white text-center w-7 h-7 rounded-full">x</button>
                     </div>
                     <div class=" p-4 md:p-6">
@@ -64,7 +64,7 @@
                             </div>
                             <h3 x-text="title"></h3>
                             <hr class="mb-2">
-                            <p x-html=body></p>
+                            <p x-html="body" class="text-sm text-justify md:text-base"></p>
                         </div>
                     </div>
                 </div>
