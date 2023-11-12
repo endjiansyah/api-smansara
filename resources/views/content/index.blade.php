@@ -78,15 +78,15 @@
             <h1 class="text-lg md:text-xl lg:text-2xl font-semibold title-font text-white text-center">VISI MISI</h1>
             <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold title-font text-white mb-6 md:mb-8 lg:mb-12 text-center">SMA Negeri 1 Jepara</h1>
             <div class="flex flex-wrap -m-4">
-                <div class="p-4 md:w-1/2 w-full">
+                <div class="p-2 lg:p-4 md:w-1/2 w-full">
                     <div class="group h-full bg-gray-100 p-8 rounded hover:bg-white hover:-translate-y-2 hover:shadow-xl duration-300">
                         <div class="mb-4 md:mb-6">
                             <h2 class="text-center text-lg md:text-xl">VISI</h2>
                             <div class="w-0 group-hover:w-20 duration-300 h-1 bg-gray-100 group-hover:bg-gray-400 mx-auto"></div>
                         </div>
-                        <p class="leading-relaxed mb-2 md:mb-6 text-justify text-sm md:text-base">Unggul dalam prestasi, kreatif, santun, berwawasan global, dan bertaqwa kepada Tuhan yang Maha Esa.</p>
+                        <p class="leading-relaxed mb-2 md:mb-4 lg:mb-6 text-justify text-sm lg:text-base">Unggul dalam prestasi, kreatif, santun, berwawasan global, dan bertaqwa kepada Tuhan yang Maha Esa.</p>
                         <p class="leading-relaxed mb-1">Indikator Visi:</p>
-                        <ul class="list-decimal text-sm md:text-base text-justify ml-4">
+                        <ul class="list-decimal text-sm lg:text-base text-justify ml-4">
                             <li>Unggul dalam prestasi akademik dan non akademik</li>
                             <li>Kreatif dalam berpikir dan berkarya</li>
                             <li>Santun dalam bertutur dan bertindak</li>
@@ -95,13 +95,13 @@
                         </ul>
                     </div>
                 </div>
-                <div class="p-4 md:w-1/2 w-full">
+                <div class="p-2 lg:p-4 md:w-1/2 w-full">
                     <div class="group h-full bg-gray-100 p-8 rounded hover:bg-white hover:-translate-y-2 hover:shadow-xl duration-300">
                         <div class="mb-4 md:mb-6">
                             <h2 class="text-center text-lg md:text-xl">MISI</h2>
                             <div class="w-0 group-hover:w-20 duration-300 h-1 bg-gray-100 group-hover:bg-gray-400 mx-auto"></div>
                         </div>
-                        <ul class="list-decimal text-sm md:text-base text-justify ml-4">
+                        <ul class="list-decimal text-sm lg:text-base text-justify ml-4 md:ml-2">
                             <li>Melaksanakan proses pembelajaran secara efektif sehingga siswa berkembang secara optimal untuk meraih prestasi terbaik.</li>
                             <li>Mengembangkan potensi siswa sesuai dengan bakat dan minat yang dimiliki agar meraih prestasi optimal.</li>
                             <li>Mengembangkan kegiatan yang mendorong siswa berpkir kreatif dan mampu berkarya inovatif.</li>
