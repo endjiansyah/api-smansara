@@ -75,22 +75,24 @@
 
     <section class="text-gray-600 body-font bg-gradient-to-r to-violet-500 from-cyan-500 via-blue-500">
         <div class="container px-5 pb-24 pt-16 mx-auto">
-            <h1 class="text-2xl font-semibold title-font text-white text-center">VISI MISI</h1>
-            <h1 class="text-3xl font-semibold title-font text-white mb-12 text-center">SMA Negeri 1 Jepara</h1>
+            <h1 class="text-lg md:text-xl lg:text-2xl font-semibold title-font text-white text-center">VISI MISI</h1>
+            <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold title-font text-white mb-6 md:mb-8 lg:mb-12 text-center">SMA Negeri 1 Jepara</h1>
             <div class="flex flex-wrap -m-4">
                 <div class="p-4 md:w-1/2 w-full">
                     <div class="group h-full bg-gray-100 p-8 rounded hover:bg-white hover:-translate-y-2 hover:shadow-xl duration-300">
-                        <div class=" mb-6">
-                            <h2 class="text-center">VISI</h2>
+                        <div class="mb-4 md:mb-6">
+                            <h2 class="text-center text-lg md:text-xl">VISI</h2>
                             <div class="w-0 group-hover:w-20 duration-300 h-1 bg-gray-100 group-hover:bg-gray-400 mx-auto"></div>
                         </div>
-                        <p class="leading-relaxed mb-6">Unggul dalam prestasi, kreatif, santun, berwawasan global, dan bertaqwa kepada Tuhan yang Maha Esa.</p>
+                        <p class="leading-relaxed mb-2 md:mb-6 text-justify text-sm md:text-base">Unggul dalam prestasi, kreatif, santun, berwawasan global, dan bertaqwa kepada Tuhan yang Maha Esa.</p>
                         <p class="leading-relaxed mb-1">Indikator Visi:</p>
-                        <p>a. Unggul dalam prestasi akademik dan non akademik</p>
-                        <p>b. Kreatif dalam berpikir dan berkarya</p>
-                        <p>c. Santun dalam bertutur dan bertindak</p>
-                        <p>d. Mampu bersaing secara nasional dan internasional</p>
-                        <p>e. Berperilaku jujur dan tekun beribadah</p>
+                        <ul class="list-decimal text-sm md:text-base text-justify ml-4">
+                            <li>Unggul dalam prestasi akademik dan non akademik</li>
+                            <li>Kreatif dalam berpikir dan berkarya</li>
+                            <li>Santun dalam bertutur dan bertindak</li>
+                            <li>Mampu bersaing secara nasional dan internasional</li>
+                            <li>Berperilaku jujur dan tekun beribadah</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="p-4 md:w-1/2 w-full">
