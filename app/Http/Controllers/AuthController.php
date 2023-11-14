@@ -167,4 +167,33 @@ class AuthController extends Controller
             "data" => $user
         ]);
     }
+
+    function pagelogin(Request $request)
+    {
+        if ($request->method() == 'GET') {
+            return view('formlogin');
+        }
+
+        $username = $request->input("username");
+        $password = $request->input('password');
+        $user = User::query()->where("username", $username)->first();
+
+        if ($user == null) {
+            return redirect()->back()->withErrors(['message' => 'Email salah!!']);
+        }
+        if (!Hash::check($password, $user->password)) {
+            return redirect()->back()->withErrors(['message' => 'Password Salah']);
+        }
+        if (!session()->isStarted()) session()->start();
+        session()->put('logged', true);
+        session()->put('logus', $user);
+
+        return redirect()->route('admin.dashboard');
+    }
+
+    function pagelogout()
+    {
+        session()->flush();
+        return redirect()->route('login');
+    }
 }

@@ -20,14 +20,14 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
-// Route::name("content.")
-//     ->controller(ContentController::class)
-//     ->middleware(['noAuth'])
-//     ->group(function(){
-//         Route::get('/','index')->name('index');
-//         Route::get('/pengumuman', 'contentPengumuman')->name('pengumuman');
-//         Route::get('/berita', 'contentBerita')->name('berita');
-//     });
+Route::name("content.")
+    ->controller(ContentController::class)
+    ->middleware(['noAuth'])
+    ->group(function(){
+        Route::get('/','index')->name('index');
+        Route::get('/pengumuman', 'contentPengumuman')->name('pengumuman');
+        Route::get('/berita', 'contentBerita')->name('berita');
+    });
 
 Route::prefix("admin")
     ->name("admin.")

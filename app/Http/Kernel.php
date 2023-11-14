@@ -2,8 +2,8 @@
 
 namespace App\Http;
 
-// use App\Http\Middleware\noAuth;
-// use App\Http\Middleware\withAuth;
+use App\Http\Middleware\noAuth;
+use App\Http\Middleware\withAuth;
 use App\Http\Middleware\KeyCheck;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -68,7 +68,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'apikey' => KeyCheck::class,
-        // 'withAuth' => withAuth::class,
-        // 'noAuth' => noAuth::class,
+        'withAuth' => withAuth::class,
+        'noAuth' => noAuth::class,
     ];
 }
