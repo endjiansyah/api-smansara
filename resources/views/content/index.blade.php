@@ -1,65 +1,60 @@
 @extends('welcome')
-
+@php
+            setlocale(LC_TIME, 'id_ID');
+        \Carbon\Carbon::setLocale('id');
+        \Carbon\Carbon::now()->formatLocalized("%A, %d %B %Y");
+@endphp
 @section('content')
 
-    <section id="pengumuman">
-        <div class="container">
-            <div class="title">
-                <h2 id="bacapengumuman">Pengumuman</h2>
-                <p>
-                    Pengumuman terbaru SMA Negeri 1 Jepara
-                </p>
-            </div>
-
-            
-            <div x-data="{id:'',title:'',body:'',time:'',show:'0'}" class="w-full flex justify-center flex-col gap-4">
-                <div class="w-full flex justify-center">
-                    <div x-show="show == '1'" class="card border-4 border-blue-700">
-                        <div class="flex justify-end w-full py-0 h-auto">
-                            <button x-on:click="show = '0', id=''" class="bg-red-500 hover:bg-red-600 text-white text-center w-7 h-7 rounded-full">x</button>
-                        </div>
-                        <hr>
-                        <div class="text-card w-full">
-                            <h1 x-text="title" class="text-center"></h1>
-                            <p x-text='body'></p>
-                        </div>
-                    </div>
-                </div>
-                    
-                <hr class="mb-2">
-                <div class="card-box">
-
-                    @foreach ($pengumuman as $item)
-                        <button class="card" x-bind:class="id == {{ $item->id }} ? 'border-4 border-blue-700' : ''" x-on:click="id='{{ $item['id'] }}',body = '{{$item['body']}}',title = '{{$item['title']}}',time = '{{$item['updated_at']}}',show='1'"  onclick="window.location.href='#bacapengumuman'">
-                            <div class="text-card">
-                                <h1>{{ $item->title }}</h1>
-
-                                <p class="date">
-                                    {{ $item->updated_at }}
-                                </p>
-                            </div>
-                        </button>
-                    @endforeach
-                </div>
-
-            </div>
-        </div>
+    <section id="top" class="h-[95vh] bg-gradient-to-b from-transparent via-transparent via-90% to-gray-100">
     </section>
 
-    <section id="berita">
+    <section id="berita" class="py-24">
         <div class="container">
-            <div class="title" id="bacaberita">
+            <div class="title">
                 <h2>Berita</h2>
                 <p>Berita terbaru SMA Negeri 1 Jepara</p>
             </div>
 
             <div x-data="{id:'',title:'',body:'',time:'',image:'',show:'false'}">
-                <div x-show="show == 'true'" class="card mb-8 md:mx-2 lg:mx-4 rounded-xl bg-white border-blue-400 border-4 shadow-lg">
-                    <div class="flex justify-between w-full p-1">
-                        <p x-text="time"></p>
+                
+                <div x-show="show =='false'" class="card-box"
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 scale-90"
+                x-transition:enter-end="opacity-100 scale-100">
+                
+                    @foreach ($berita as $item)    
+                    <div x-bind:class="id == {{ $item['id']}} ? ' bg-white shadow-xl border'  : 'bg-white shadow border'" class="card relative" x-show="show =='false'" 
+                    x-transition:enter="transition ease-out duration-500"
+                    x-transition:enter-start="opacity-0 scale-90"
+                    x-transition:enter-end="opacity-100 scale-100">
+                        <div class="w-full flex justify-center">
+                            <img src="{{ $item->image != ''? $item->image : './assets/mdlogosmansara.jpg' }}" alt="{{ $item->title }}" >
+                        </div>
+                        <div class="text">
+                            
+                            <p class="text-xs md:text-base">{{ $item->updated_at->isoFormat('dddd, D MMMM Y') }}</p>
+                            <div class="line">
+                            </div>
+                            <h3 class="pb-4 md:pb-6">
+                                {{ $item->title }}
+                            </h3>
+                            <button x-on:click="id='{{ $item['id'] }}',body = '{{$item['body']}}',title = '{{$item['title']}}',image = '{{$item['image']}}',time = '{{ $item->updated_at->isoFormat('dddd, D MMMM Y') }}',show='true';scrollToElement('#bacaberita')" class="absolute bottom-4">Continue Reading</button>
+                        </div>
+                    </div>
+                    @endforeach
+                    
+                </div>
+
+                <div x-show="show == 'true'" class="card my-4 md:my-8 md:mx-2 lg:mx-4 rounded-xl bg-white border shadow-xl" id="bacaberita" x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 scale-90"
+                x-transition:enter-end="opacity-100 scale-100">
+
+                    <div class="flex justify-between items-center w-full p-4">
+                        <p x-text="time" class="text-sm md:text-base"></p>
                         <button x-on:click="show = 'false', id=''" class="bg-red-500 hover:bg-red-600 text-white text-center w-7 h-7 rounded-full">x</button>
                     </div>
-                    <div class=" p-4 md:px-6 md:pb-6">
+                    <div class=" p-4 md:p-6">
                         <div class="w-full flex justify-center">
                             <img x-show="image != ''" x-bind:src=" image != ''? image : './assets/logosmansara.png'" alt="title">
                         </div>
@@ -69,34 +64,105 @@
                             </div>
                             <h3 x-text="title"></h3>
                             <hr class="mb-2">
-                            <p x-text=body></p>
+                            <p x-html="body" class="text-sm text-justify md:text-base"></p>
                         </div>
                     </div>
                 </div>
                 
-                <hr class="mb-2">
-                
-                <div class="card-box">
-                
-                    @foreach ($berita as $item)    
-                    <div x-bind:class="id == {{ $item['id']}} ? 'border-blue-400 border-4'  : ''" class="card">
-                        <div class="w-full flex justify-center">
-                            <img src="{{ $item->image != ''? $item->image : './assets/mdlogosmansara.jpg' }}" alt="{{ $item->title }}" >
+            </div>
+        </div>
+    </section>
+
+    <section class="text-gray-600 body-font bg-gradient-to-r to-violet-500 from-cyan-500 via-blue-500">
+        <div class="container px-5 pb-24 pt-16 mx-auto">
+            <h1 class="text-lg md:text-xl lg:text-2xl font-semibold title-font text-white text-center">VISI MISI</h1>
+            <h1 class="text-xl md:text-2xl lg:text-3xl font-semibold title-font text-white mb-6 md:mb-8 lg:mb-12 text-center">SMA Negeri 1 Jepara</h1>
+            <div class="flex flex-wrap -m-4">
+                <div class="p-2 lg:p-4 md:w-1/2 w-full">
+                    <div class="group h-full bg-gray-100 p-8 rounded hover:bg-white hover:-translate-y-2 hover:shadow-xl duration-300">
+                        <div class="mb-4 md:mb-6">
+                            <h2 class="text-center text-lg md:text-xl">VISI</h2>
+                            <div class="w-0 group-hover:w-20 duration-300 h-1 bg-gray-100 group-hover:bg-gray-400 mx-auto"></div>
                         </div>
-                        <div class="text">
-                            
-                            {{ $item->updated_at }}
-                            <div class="line">
-                            </div>
-                            <h3>
-                                {{ $item->title }}
-                            </h3>
-                            <button x-on:click="id='{{ $item['id'] }}',body = '{{$item['body']}}',title = '{{$item['title']}}',image = '{{$item['image']}}',time = '{{$item['updated_at']}}',show='true'"  onclick="window.location.href='#bacaberita'">Continue Reading</button>
+                        <p class="leading-relaxed mb-2 md:mb-4 lg:mb-6 text-justify text-sm lg:text-base">Unggul dalam prestasi, kreatif, santun, berwawasan global, dan bertaqwa kepada Tuhan yang Maha Esa.</p>
+                        <p class="leading-relaxed mb-1">Indikator Visi:</p>
+                        <ul class="list-decimal text-sm lg:text-base text-justify ml-4">
+                            <li>Unggul dalam prestasi akademik dan non akademik</li>
+                            <li>Kreatif dalam berpikir dan berkarya</li>
+                            <li>Santun dalam bertutur dan bertindak</li>
+                            <li>Mampu bersaing secara nasional dan internasional</li>
+                            <li>Berperilaku jujur dan tekun beribadah</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="p-2 lg:p-4 md:w-1/2 w-full">
+                    <div class="group h-full bg-gray-100 p-8 rounded hover:bg-white hover:-translate-y-2 hover:shadow-xl duration-300">
+                        <div class="mb-4 md:mb-6">
+                            <h2 class="text-center text-lg md:text-xl">MISI</h2>
+                            <div class="w-0 group-hover:w-20 duration-300 h-1 bg-gray-100 group-hover:bg-gray-400 mx-auto"></div>
+                        </div>
+                        <ul class="list-decimal text-sm lg:text-base text-justify ml-4 md:ml-2">
+                            <li>Melaksanakan proses pembelajaran secara efektif sehingga siswa berkembang secara optimal untuk meraih prestasi terbaik.</li>
+                            <li>Mengembangkan potensi siswa sesuai dengan bakat dan minat yang dimiliki agar meraih prestasi optimal.</li>
+                            <li>Mengembangkan kegiatan yang mendorong siswa berpkir kreatif dan mampu berkarya inovatif.</li>
+                            <li>Menumbuhkan sikap santun dalam bertutur kata dan berperilaku.</li>
+                            <li>Meningkatkan pengetahuan dan memperluas wawasan agar mampu menghadapi persaingan global.</li>
+                            <li>Menanamkan sikap jujur pada setiap individu dan tekun melaksanakan ibadah sesuai dengan agama da keyakinannya.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pengumuman" class="bg-gray-100 py-16">
+        <div class="container" id="bacapengumuman">
+            <div class="title">
+                <h2>Pengumuman</h2>
+                <p>
+                    Pengumuman terbaru SMA Negeri 1 Jepara
+                </p>
+            </div>
+            
+            <div x-data="{id:'',title:'',body:'',time:'',show:'0'}" class="w-full flex justify-center flex-col gap-4">
+                <div class="w-full flex justify-center">
+                    <div x-show="show == '1'"  
+                    x-transition:enter="transition ease-out duration-500"
+                    x-transition:enter-start="opacity-0 scale-90"
+                    x-transition:enter-end="opacity-100 scale-100" x-bind:class="show == '1'? 'card border shadow-xl' : 'hidden'">
+                    <div class="flex justify-between items-center w-full p-4">
+                        <p x-text="time" class="text-sm md:text-base"></p>
+                        <button x-on:click="show = '0', id=''" class="bg-red-500 hover:bg-red-600 text-white text-center w-7 h-7 rounded-full">x</button>
+                    </div>
+                        <div class="text-card w-full">
+                            <h1 x-text="title" class="text-center"></h1>
+                            <p x-html='body' class="text-justify text-sm md:text-base"></p>
                         </div>
                     </div>
-                    @endforeach
+                </div>
                     
+                <div class="card-box" x-show="show !=1" 
+                x-transition:enter="transition ease-out duration-500"
+                x-transition:enter-start="opacity-0 scale-90"
+                x-transition:enter-end="opacity-100 scale-100">
+
+                    @foreach ($pengumuman as $item)
+                        <button class="group card border-2 shadow-[14px_22px_52px_-12px_rgba(127,_127,_127,_0.13)] items-start hover:drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] hover:bg-white duration-300" x-bind:class="id == {{ $item->id }} ? 'drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] shadow-xl' : ''" x-on:click="id='{{ $item['id'] }}',body = '{{$item['body']}}',title = '{{$item['title']}}',time = '{{ $item->updated_at->isoFormat('dddd, D MMMM Y') }}',show='1';scrollToElement('#bacapengumuman')">
+                            <div class="text-card">
+                                <div class="flex flex-col justify-start text-left">
+                                    <h1>{{ $item->title }}</h1>
+                                    <div class="w-0 group-hover:w-20 duration-300 h-1 bg-gray-100 group-hover:bg-gray-400"></div>
+                                </div>
+
+                                <p class="date">
+                                    {{ $item->updated_at->isoFormat('dddd, D MMMM Y') }}
+
+                                </p>
+                            </div>
+                        </button>
+                    @endforeach
                 </div>
+
             </div>
         </div>
     </section>

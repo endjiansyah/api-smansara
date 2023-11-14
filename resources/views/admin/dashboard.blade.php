@@ -1,10 +1,10 @@
 @extends('welcome')
 
 @section('content')
-<section id="pengumuman">
+<section id="pengumuman" class=" py-24">
     <div class="container min-h-[75vh]">
         <div class="w-full">
-            <div class="px-4 py-8 shadow-lg sm:rounded-lg sm:px-10 bg-white">
+            <div class="px-4 py-8 shadow-lg border-2 sm:rounded-lg sm:px-10 bg-white">
                 <h2 class="mb-6 text-2xl text-gray-900 leading-9">
                     Selamat Datang {{ $logus->name }}
                 </h2>
@@ -16,20 +16,20 @@
                         <div class="flex flex-col mt-3 md:mt-0">
                         
                             <label for="name">Nama</label>
-                            <input type="text" id="name" class="rounded-lg" name="name" value="{{$logus->name}}">
+                            <input type="text" id="name" class=" px-3 py-2 border bg-white border-gray-300 rounded-lg" name="name" value="{{$logus->name}}">
                         
                             <label for="username" class="mt-3">Username</label>
-                            <input type="text" id="username" class="rounded-lg" name="username" value="{{$logus->username}}">
+                            <input type="text" id="username" class=" px-3 py-2 border bg-white border-gray-300 rounded-lg" name="username" value="{{$logus->username}}">
                         
                         </div>
 
                         <div class="flex flex-col mt-3 md:mt-0">
 
-                            <label for="pw">Password @error('password') <span class="text-red-700 font-bold">minimal 5 karakter</span> @enderror</label>
-                            <input type="password" id="pw" class="rounded-lg @error('password') border-red-700 border border-2 @enderror" name="password" placeholder="password">
+                            <label for="pw">Ganti Password @error('password') <span class="text-red-700 font-bold">minimal 5 karakter</span> @enderror</label>
+                            <input type="password" id="pw" class=" px-3 py-2 border bg-white border-gray-300 rounded-lg @error('password') border-red-700 border border-2 @enderror" name="password" placeholder="password">
 
                             <label for="kpw" class="mt-3">Konfirmasi Password</label>
-                            <input type="password" id="kpw" class="rounded-lg @error('password') border-red-700 border border-2 @enderror" name="kpassword" placeholder="konfirmasi password">
+                            <input type="password" id="kpw" class=" px-3 py-2 border bg-white border-gray-300 rounded-lg @error('password') border-red-700 border border-2 @enderror" name="kpassword" placeholder="konfirmasi password">
                         
                         </div>
 

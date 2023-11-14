@@ -56,14 +56,19 @@ class AuthController extends Controller
             ]);
         }
 
-        // cek password
-        if (!Hash::check($request->input("password"), $user->password)) {
-            return response()->json([
-                "status" => false,
-                "message" => "Password salah",
-                "data" => 'password'
-            ]);
+        $username = $request->input("username");
+        $password = $request->input('password');
+        $user = User::query()->where("username", $username)->first();
+
+        if ($user == null) {
+            return redirect()->back()->withErrors(['message' => 'Email salah!!']);
         }
+        if (!Hash::check($password, $user->password)) {
+            return redirect()->back()->withErrors(['message' => 'Password Salah']);
+        }
+        if (!session()->isStarted()) session()->start();
+        session()->put('logged', true);
+        session()->put('logus', $user);
 
         // buat token untuk authorisasi
         $token = $user->createToken("auth_token");
