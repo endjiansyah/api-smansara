@@ -1,6 +1,6 @@
 <p align="center">
-    <a href="https://endjiansyah.github.io" target="_blank"><img src="https://endjiansyah.github.io/assets/title.png" width="400" alt="EndProjects"></a>
-    <a href="https://sman1jepara.sch.id" target="_blank"><img src="https://sman1jepara.sch.id/assets/smansara.png" width="400" alt="EndProjects"></a>
+    <a href="https://endjiansyah.github.io" target="_blank"><img src="https://endjiansyah.github.io/assets/title.png" height="100" alt="EndProjects"></a>
+    <a href="https://sman1jepara.sch.id" target="_blank"><img src="https://sman1jepara.sch.id/assets/smansara.png" height="100" alt="EndProjects"></a>
 </p>
 
 
