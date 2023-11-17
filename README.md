@@ -1,4 +1,4 @@
-<div class="flex justify-content-between items-center gap-16">
+<div style="display:flex; justify-content:between; gap:16px;">
     <p align="center"><a href="https://endjiansyah.github.io" target="_blank"><img src="https://endjiansyah.github.io/assets/title.png" width="400" alt="EndProjects"></a></p>
     <p align="center"><a href="https://sman1jepara.sch.id" target="_blank"><img src="https://sman1jepara.sch.id/assets/smansara.png" width="400" alt="EndProjects"></a></p>
 </div>
